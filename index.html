@@ -1,15 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ibni Wali – Python & ERPNext</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    :root{
+      --bg:#0d1117;
+      --card:#161b22;
+      --text:#c9d1d9;
+      --accent:#58a6ff;
+      --muted:#8b949e;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+      padding:2.5rem 1rem;
+    }
+    header{
+      text-align:center;
+      margin-bottom:3rem;
+    }
+    header h1{font-size:2.4rem;color:var(--accent)}
+    header p{color:var(--muted);margin:.5rem 0 1.5rem}
+    nav a{
+      color:var(--accent);
+      margin:0 .6rem;
+      font-weight:600;
+      text-decoration:none;
+    }
+    nav a:hover{text-decoration:underline}
+    section{
+      max-width:780px;
+      margin:2rem auto;
+      padding:1.8rem;
+      background:var(--card);
+      border-radius:12px;
+    }
+    h2{
+      margin-bottom:1rem;
+      font-size:1.5rem;
+      color:var(--accent);
+      border-bottom:1px solid var(--accent);
+      display:inline-block;
+    }
+    ul{list-style:square inside;margin-left:.5rem}
+    ul li{margin:.4rem 0}
+    .grid{
+      display:flex;
+      flex-wrap:wrap;
+      gap:.5rem;
+    }
+    .tag{
+      background:var(--accent);
+      color:#000;
+      padding:.35rem .75rem;
+      border-radius:999px;
+      font-size:.85rem;
+      font-weight:600;
+    }
+    footer{
+      text-align:center;
+      margin-top:3rem;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+    @media(max-width:600px){
+      body{padding:1.2rem}
+      section{padding:1.2rem}
+    }
+  </style>
 </head>
 <body>
+
   <header>
     <h1>Ibni Wali</h1>
-    <p>Python Developer &nbsp;&bull;&nbsp; ERPNext Functional Consultant</p>
+    <p>Python Developer | ERPNext Functional Consultant | Cyber-Security Enthusiast</p>
     <nav>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
@@ -22,45 +91,52 @@
     <section id="about">
       <h2>About Me</h2>
       <p>
-        I build secure, bilingual (Urdu/English) Python solutions and customize ERPNext to fit ISPs, non-profits and SMEs.  
-        My work is open-source first, automation-driven, and always security-hardened.
+        I design secure, bilingual (Urdu/English) solutions for ISPs and SMEs.  
+        From ERPNext customization to full-stack Python apps and hard-core Linux automation, everything I build is open-source, well-documented, and security-first.
       </p>
     </section>
 
     <section id="projects">
-      <h2>Current Projects</h2>
+      <h2>Featured Projects</h2>
       <ul>
-        <li><strong>ISP Management Software</strong> – React + Django/Node, MikroTik & pfSense integration</li>
+        <li><strong>ISP Management Suite</strong> – React + Django/Node, MikroTik & pfSense integration</li>
         <li><strong>ERPNext AI Assistant</strong> – Offline/online AI, Google Sheets sync, multilingual</li>
-        <li><strong>AI Desktop Assistant</strong> – GUI tool with OCR & Urdu/English voice support</li>
-        <li><strong>CyberSec & Linux Automation Toolkit</strong> – Bash/Python scripts for blue teams</li>
+        <li><strong>AI Desktop Assistant</strong> – GUI tool with OCR & Urdu/English voice control</li>
+        <li><strong>CyberSec Toolkit</strong> – Bash & Python scripts for incident response & hardening</li>
       </ul>
     </section>
 
     <section id="skills">
       <h2>Core Skills</h2>
       <div class="grid">
-        <span>Python</span><span>JavaScript</span><span>Bash</span>
-        <span>Django</span><span>Node.js</span><span>React</span>
-        <span>ERPNext 14/15</span><span>Frappe</span>
-        <span>MikroTik API</span><span>pfSense</span>
-        <span>Docker</span><span>PostgreSQL</span>
-        <span>Whisper</span><span>Ollama</span><span>Kali Linux</span>
+        <span class="tag">Python</span>
+        <span class="tag">Django</span>
+        <span class="tag">Node.js</span>
+        <span class="tag">React</span>
+        <span class="tag">ERPNext 14/15</span>
+        <span class="tag">Frappe</span>
+        <span class="tag">MikroTik API</span>
+        <span class="tag">pfSense</span>
+        <span class="tag">Docker</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">Whisper</span>
+        <span class="tag">Ollama</span>
+        <span class="tag">Kali Linux</span>
       </div>
     </section>
 
     <section id="contact">
-      <h2>Get In Touch</h2>
+      <h2>Contact & Links</h2>
       <p>
-        <a href="mailto:umairwali6@gmail.com">umairwali6@gmail.com</a> &nbsp;|&nbsp;
-        <a href="https://linkedin.com/in/umair-wali-80096423a" target="_blank" rel="noopener">LinkedIn</a> &nbsp;|&nbsp;
-        <a href="https://github.com/Musab1khan" target="_blank" rel="noopener">GitHub</a>
+        <a href="mailto:umairwali6@gmail.com" style="color:var(--accent)">umairwali6@gmail.com</a> &nbsp;|&nbsp;
+        <a href="https://linkedin.com/in/umair-wali-80096423a" style="color:var(--accent)" target="_blank">LinkedIn</a> &nbsp;|&nbsp;
+        <a href="https://github.com/Musab1khan" style="color:var(--accent)" target="_blank">GitHub</a>
       </p>
     </section>
   </main>
 
   <footer>
-    <p>© 2024 Ibni Wali – open-source & security first</p>
+    © 2024 Ibni Wali – open-source & security first
   </footer>
 </body>
 </html>
