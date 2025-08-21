@@ -7,11 +7,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#ffffff;
-      --card:#f7f7f7;
-      --text:#111827;
-      --accent:#0ea5e9;   /* sky-500 */
-      --muted:#6b7280;
+      --bg:#f9fafb;
+      --card:#ffffff;
+      --text:#1e293b;
+      --accent:#0284c7;   /* cyan-600 */
+      --accent-dark:#0369a1;
+      --muted:#64748b;
+      --shadow:0 4px 12px rgba(0,0,0,0.08);
     }
     *{box-sizing:border-box;margin:0;padding:0}
     body{
@@ -19,43 +21,62 @@
       background:var(--bg);
       color:var(--text);
       line-height:1.7;
-      padding:3rem 1rem;
+      padding:2rem 1rem;
     }
-    header,main,footer{max-width:800px;margin:auto}
-    header{text-align:center;margin-bottom:3rem}
-    header h1{font-size:2.6rem;font-weight:600;color:var(--accent)}
-    header p{color:var(--muted);margin:.4rem 0 1.2rem}
-    header a[href^="tel"]{color:var(--text);font-weight:600}
+    header,main,footer{max-width:900px;margin:auto}
+    header{text-align:center;margin-bottom:3rem;animation:fadeIn 1s ease}
+    header h1{font-size:3rem;font-weight:700;color:var(--accent);letter-spacing:-1px}
+    header p{color:var(--muted);margin:.6rem 0 1.4rem;font-size:1.1rem}
+    header a[href^="tel"]{color:var(--text);font-weight:600;text-decoration:none}
+    nav{margin-top:1rem}
     nav a{
       color:var(--accent);
-      margin:0 .6rem;
+      margin:0 .8rem;
       font-weight:600;
       text-decoration:none;
+      position:relative;
     }
-    nav a:hover{text-decoration:underline}
+    nav a::after{
+      content:"";
+      position:absolute;
+      width:0%;
+      height:2px;
+      bottom:-3px;
+      left:0;
+      background:var(--accent);
+      transition:width .3s;
+    }
+    nav a:hover::after{width:100%}
     section{
       background:var(--card);
-      border-radius:12px;
+      border-radius:14px;
       padding:2rem;
       margin-bottom:2rem;
+      box-shadow:var(--shadow);
+      transition:transform .3s;
     }
+    section:hover{transform:translateY(-4px)}
     h2{
-      font-size:1.5rem;
+      font-size:1.6rem;
       margin-bottom:1rem;
-      color:var(--accent);
+      color:var(--accent-dark);
       border-bottom:2px solid var(--accent);
       display:inline-block;
+      padding-bottom:.3rem;
     }
     ul{list-style:square inside;margin-left:.5rem}
-    .grid{display:flex;flex-wrap:wrap;gap:.5rem}
+    ul li{margin:.4rem 0}
+    .grid{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:.5rem}
     .tag{
       background:var(--accent);
       color:#fff;
-      padding:.4rem .9rem;
+      padding:.5rem 1rem;
       border-radius:9999px;
       font-size:.85rem;
       font-weight:600;
+      transition:background .25s;
     }
+    .tag:hover{background:var(--accent-dark)}
     footer{
       text-align:center;
       margin:2.5rem 0 1rem;
@@ -65,13 +86,21 @@
       background:var(--accent);
       color:#fff;
       font-weight:600;
-      padding:.8rem 1.6rem;
-      border-radius:8px;
+      padding:.9rem 1.8rem;
+      border-radius:10px;
       text-decoration:none;
-      transition:background .25s;
+      transition:background .25s, transform .2s;
+      box-shadow:var(--shadow);
     }
-    .btn:hover{background:#0284c7}
-    @media(max-width:600px){body{padding:2rem 1rem}}
+    .btn:hover{background:var(--accent-dark);transform:scale(1.05)}
+    @media(max-width:640px){
+      header h1{font-size:2rem}
+      section{padding:1.5rem}
+    }
+    @keyframes fadeIn{
+      from{opacity:0;transform:translateY(-20px)}
+      to{opacity:1;transform:translateY(0)}
+    }
   </style>
 </head>
 <body>
@@ -79,7 +108,7 @@
 <header>
   <h1>Umair Wali</h1>
   <p>Python Developer • ERPNext Functional Consultant • Cyber-Security</p>
-  <a href="tel:+923082614004">+92 308 261 4004</a>
+  <a href="tel:+923082614004">📞 +92 308 261 4004</a>
   <nav>
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
@@ -100,10 +129,10 @@
   <section id="projects">
     <h2>Featured Projects</h2>
     <ul>
-      <li>ISP Management Suite – React + Django/Node, MikroTik & pfSense integration</li>
-      <li>ERPNext AI Assistant – Offline/online AI, Google Sheets sync, multilingual</li>
-      <li>AI Desktop Assistant – GUI tool with OCR & Urdu/English voice control</li>
-      <li>CyberSec Toolkit – Bash & Python scripts for incident response & hardening</li>
+      <li><strong>ISP Management Suite</strong> – React + Django/Node, MikroTik & pfSense integration</li>
+      <li><strong>ERPNext AI Assistant</strong> – Offline/online AI, Google Sheets sync, multilingual</li>
+      <li><strong>AI Desktop Assistant</strong> – GUI tool with OCR & Urdu/English voice control</li>
+      <li><strong>CyberSec Toolkit</strong> – Bash & Python scripts for incident response & hardening</li>
     </ul>
   </section>
 
@@ -129,16 +158,16 @@
   <section id="contact">
     <h2>Contact & Links</h2>
     <p>
-      <a href="mailto:umairwali6@gmail.com">umairwali6@gmail.com</a> •
-      <a href="https://linkedin.com/in/umair-wali-80096423a" target="_blank">LinkedIn</a> •
-      <a href="https://github.com/Musab1khan" target="_blank">GitHub</a>
+      📧 <a href="mailto:umairwali6@gmail.com">umairwali6@gmail.com</a> •  
+      💼 <a href="https://linkedin.com/in/umair-wali-80096423a" target="_blank">LinkedIn</a> •  
+      👨‍💻 <a href="https://github.com/Musab1khan" target="_blank">GitHub</a>
     </p>
   </section>
 </main>
 
 <footer>
-  <a class="btn" href="cv.pdf" download="Umair_Wali_CV.pdf">Download CV ↓</a>
-  <p style="margin-top:.8rem;color:var(--muted)">© 2024 Umair Wali – open-source & security first</p>
+  <a class="btn" href="cv.pdf" download="Umair_Wali_CV.pdf">⬇ Download CV</a>
+  <p style="margin-top:.8rem;color:var(--muted)">© 2025 Umair Wali – open-source & security first</p>
 </footer>
 
 </body>
