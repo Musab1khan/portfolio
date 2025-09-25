@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Ibni Wali</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .nav-blur {
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .project-timeline {
+            position: relative;
+        }
+        
+        .project-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #06b6d4, #0891b2);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 2rem;
+            width: 16px;
+            height: 16px;
+            background: #06b6d4;
+            border: 4px solid white;
+            border-radius: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.2);
+        }
+        
+        .timeline-content {
+            width: 45%;
+            padding: 2rem;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: auto;
+        }
+        
+        .tech-tag {
+            transition: all 0.2s ease;
+        }
+        
+        .tech-tag:hover {
+            transform: scale(1.05);
+        }
+        
+        .section-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .section-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.8s ease;
+        }
+        
+        @media (max-width: 768px) {
+            .project-timeline::before {
+                left: 2rem;
+            }
+            
+            .timeline-item::before {
+                left: 2rem;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 4rem);
+                margin-left: 4rem !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 nav-blur border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-slate-800">Ibni Wali</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="text-slate-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">Home</a>
+                        <a href="index.html#skills" class="text-slate-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">Skills</a>
+                        <a href="projects.html" class="text-teal-600 px-3 py-2 text-sm font-medium border-b-2 border-teal-600">Projects</a>
+                        <a href="index.html#ai-demo" class="text-slate-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">AI Demo</a>
+                        <a href="contact.html" class="bg-teal-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-teal-700 transition-colors">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 bg-gradient-to-br from-slate-800 to-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-5xl font-bold mb-6">My Projects</h1>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Explore my current development projects spanning ERPNext customization, AI automation, 
+                    network management, and system integration solutions.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Timeline -->
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 section-reveal">
+                <h2 class="text-4xl font-bold text-slate-800 mb-4">Project Timeline</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    A chronological view of my active development projects and their current status
+                </p>
+            </div>
+
+            <div class="project-timeline section-reveal">
+                <!-- ISP Management Software -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-2xl font-bold text-slate-800">ISP Management Software</h3>
+                            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm font-medium">In Development</span>
+                        </div>
+                        <img src="resources/erp-dashboard.jpg" alt="ISP Management Dashboard" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            A comprehensive ISP management system built with React and Django, featuring complete MikroTik integration, 
+                            automated billing cycles, customer management, bandwidth monitoring, and real-time network analytics. 
+                            This solution streamlines ISP operations with intelligent automation and robust reporting capabilities.
+                        </p>
+                        <div class="mb-6">
+                            <h4 class="text-lg font-semibold text-slate-800 mb-3">Key Features</h4>
+                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-gray-600">
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-teal-600 rounded-full mr-2"></span>
+                                    MikroTik RouterOS API integration
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-teal-600 rounded-full mr-2"></span>
+                                    Automated billing and invoicing
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-teal-600 rounded-full mr-2"></span>
+                                    Customer portal and management
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-teal-600 rounded-full mr-2"></span>
+                                    Bandwidth monitoring and throttling
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-teal-600 rounded-full mr-2"></span>
+                                    Real-time network analytics
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-teal-600 rounded-full mr-2"></span>
+                                    Payment gateway integration
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm">React</span>
+                            <span class="tech-tag bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm">Django</span>
+                            <span class="tech-tag bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm">MikroTik API</span>
+                            <span class="tech-tag bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm">PostgreSQL</span>
+                            <span class="tech-tag bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm">Redis</span>
+                            <span class="tech-tag bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm">Docker</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm text-gray-500">
+                            <span>Started: March 2024</span>
+                            <span>Expected Completion: December 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ERPNext AI Assistant -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-2xl font-bold text-slate-800">ERPNext AI Assistant</h3>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Active</span>
+                        </div>
+                        <img src="resources/ai-automation.jpg" alt="AI Assistant Interface" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            An intelligent AI assistant designed specifically for ERPNext environments, featuring offline LLM capabilities, 
+                            Google Sheets synchronization, and natural language processing for ERP queries. This assistant enhances 
+                            productivity by providing instant access to ERP data and automating routine tasks through conversational interfaces.
+                        </p>
+                        <div class="mb-6">
+                            <h4 class="text-lg font-semibold text-slate-800 mb-3">Core Capabilities</h4>
+                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-gray-600">
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-amber-600 rounded-full mr-2"></span>
+                                    Offline LLM processing
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-amber-600 rounded-full mr-2"></span>
+                                    Google Sheets sync
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-amber-600 rounded-full mr-2"></span>
+                                    Natural language ERP queries
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-amber-600 rounded-full mr-2"></span>
+                                    Multi-language support (English/Urdu)
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-amber-600 rounded-full mr-2"></span>
+                                    Voice recognition capabilities
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-amber-600 rounded-full mr-2"></span>
+                                    Automated report generation
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">Python</span>
+                            <span class="tech-tag bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">LLMs</span>
+                            <span class="tech-tag bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">ERPNext API</span>
+                            <span class="tech-tag bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">Google Sheets API</span>
+                            <span class="tech-tag bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">Speech Recognition</span>
+                            <span class="tech-tag bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">SQLite</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm text-gray-500">
+                            <span>Started: January 2024</span>
+                            <span>Version 2.0 Release: October 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Desktop Assistant -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-2xl font-bold text-slate-800">AI Desktop Assistant</h3>
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">Testing</span>
+                        </div>
+                        <img src="resources/python-dev.jpg" alt="Desktop Assistant" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            A multilingual desktop AI assistant with comprehensive voice recognition capabilities in both English and Urdu, 
+                            integrated with OCR technology for document processing and intelligent task automation. This assistant provides 
+                            seamless interaction with computer systems through natural language commands and automated workflows.
+                        </p>
+                        <div class="mb-6">
+                            <h4 class="text-lg font-semibold text-slate-800 mb-3">Advanced Features</h4>
+                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-gray-600">
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
+                                    Bilingual voice recognition (English/Urdu)
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
+                                    OCR document processing
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
+                                    System automation commands
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
+                                    File management operations
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
+                                    Web browsing automation
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
+                                    Custom workflow creation
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Python</span>
+                            <span class="tech-tag bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Speech Recognition</span>
+                            <span class="tech-tag bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">OCR</span>
+                            <span class="tech-tag bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Tkinter</span>
+                            <span class="tech-tag bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">OpenCV</span>
+                            <span class="tech-tag bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">PyAudio</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm text-gray-500">
+                            <span>Started: April 2024</span>
+                            <span>Beta Release: November 2024</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cybersecurity Tools -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-2xl font-bold text-slate-800">Cybersecurity & Linux Tools</h3>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">Production</span>
+                        </div>
+                        <img src="resources/erp-dashboard.jpg" alt="Security Tools" class="w-full h-48 object-cover rounded-lg mb-4">
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            A comprehensive suite of internal security tools and server automation scripts designed for enhanced cybersecurity, 
+                            network monitoring, and system administration. These tools provide real-time security monitoring, automated threat 
+                            detection, and streamlined server management for Linux-based environments.
+                        </p>
+                        <div class="mb-6">
+                            <h4 class="text-lg font-semibold text-slate-800 mb-3">Security Features</h4>
+                            <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm text-gray-600">
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-red-600 rounded-full mr-2"></span>
+                                    Real-time threat monitoring
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-red-600 rounded-full mr-2"></span>
+                                    Automated security scans
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-red-600 rounded-full mr-2"></span>
+                                    Network intrusion detection
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-red-600 rounded-full mr-2"></span>
+                                    Server performance monitoring
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-red-600 rounded-full mr-2"></span>
+                                    Log analysis and reporting
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="w-2 h-2 bg-red-600 rounded-full mr-2"></span>
+                                    Automated backup systems
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="tech-tag bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Bash</span>
+                            <span class="tech-tag bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Python</span>
+                            <span class="tech-tag bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Linux</span>
+                            <span class="tech-tag bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Security</span>
+                            <span class="tech-tag bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Monitoring</span>
+                            <span class="tech-tag bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Networking</span>
+                        </div>
+                        <div class="flex justify-between items-center text-sm text-gray-500">
+                            <span>Started: February 2024</span>
+                            <span>Production Deployed: August 2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack Overview -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 section-reveal">
+                <h2 class="text-4xl font-bold text-slate-800 mb-4">Technology Stack</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Comprehensive overview of technologies and frameworks used across all projects
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 section-reveal">
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">🐍</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-slate-800 mb-3">Programming Languages</h3>
+                    <div class="space-y-2 text-sm text-gray-600">
+                        <div>Python (Django, Flask)</div>
+                        <div>JavaScript (React, Node.js)</div>
+                        <div>Bash Scripting</div>
+                        <div>TypeScript</div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">🗄️</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-slate-800 mb-3">Databases</h3>
+                    <div class="space-y-2 text-sm text-gray-600">
+                        <div>PostgreSQL</div>
+                        <div>MariaDB</div>
+                        <div>SQLite</div>
+                        <div>Redis</div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">🤖</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-slate-800 mb-3">AI & Automation</h3>
+                    <div class="space-y-2 text-sm text-gray-600">
+                        <div>Large Language Models</div>
+                        <div>OCR Technology</div>
+                        <div>Speech Recognition</div>
+                        <div>Computer Vision</div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl">🔧</span>
+                    </div>
+                    <h3 class="text-xl font-semibold text-slate-800 mb-3">Systems & Tools</h3>
+                    <div class="space-y-2 text-sm text-gray-600">
+                        <div>Linux Administration</div>
+                        <div>MikroTik & pfSense</div>
+                        <div>Docker & Containers</div>
+                        <div>ERPNext Platform</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Ibni Wali</h3>
+                    <p class="text-gray-300 mb-4">
+                        Python Developer & ERPNext Functional Consultant specializing in AI automation and system integration.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="mailto:it@cosmopharmaint.com" class="text-gray-300 hover:text-teal-400 transition-colors">
+                            <span class="sr-only">Email</span>
+                            📧
+                        </a>
+                        <a href="https://wa.me/923082614004" class="text-gray-300 hover:text-teal-400 transition-colors">
+                            <span class="sr-only">WhatsApp</span>
+                            💬
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li>ERPNext Customization</li>
+                        <li>AI Assistant Development</li>
+                        <li>Automation Solutions</li>
+                        <li>System Integration</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
+                    <div class="space-y-2 text-gray-300">
+                        <p>📧 it@cosmopharmaint.com</p>
+                        <p>📱 +92 308 2614004</p>
+                        <p>📍 Pakistan</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Ibni Wali. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize scroll animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections with reveal animation
+            document.querySelectorAll('.section-reveal').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Animate timeline items
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach((item, index) => {
+                anime({
+                    targets: item,
+                    translateY: [50, 0],
+                    opacity: [0, 1],
+                    duration: 800,
+                    delay: index * 200,
+                    easing: 'easeOutCubic'
+                });
+            });
+        });
+
+        // Technology tag hover effects
+        document.querySelectorAll('.tech-tag').forEach(tag => {
+            tag.addEventListener('mouseenter', function() {
+                anime({
+                    targets: this,
+                    scale: 1.1,
+                    duration: 200,
+                    easing: 'easeOutCubic'
+                });
+            });
+            
+            tag.addEventListener('mouseleave', function() {
+                anime({
+                    targets: this,
+                    scale: 1,
+                    duration: 200,
+                    easing: 'easeOutCubic'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
