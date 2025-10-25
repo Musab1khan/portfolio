@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ERPNext Features Checklist - Umair Wali</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -236,6 +238,88 @@
             color: white;
             border-color: transparent;
             box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+        
+        /* Chart Section */
+        .chart-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .chart-header h2 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0f172a;
+        }
+        
+        .btn-download {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-download:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+        }
+        
+        .btn-download:disabled {
+            background: #cbd5e1;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin-bottom: 30px;
+        }
+        
+        .chart-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .chart-stat {
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+        }
+        
+        .chart-stat-label {
+            font-size: 12px;
+            color: #6b7280;
+            font-weight: 600;
+        }
+        
+        .chart-stat-value {
+            font-size: 28px;
+            font-weight: bold;
+            color: #0f172a;
+            margin-top: 5px;
         }
         
         /* Features Container */
@@ -509,19 +593,6 @@
             font-weight: bold;
         }
         
-        .visual-example {
-            background: #f0f9ff;
-            border: 2px solid #bfdbfe;
-            border-radius: 8px;
-            padding: 15px;
-            margin: 15px 0;
-            font-size: 13px;
-            color: #1e40af;
-            font-family: monospace;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
-        
         .modal-footer {
             padding: 20px 30px;
             background: #f9fafb;
@@ -672,6 +743,11 @@
                 width: 95%;
                 margin: 20% auto;
             }
+            
+            .chart-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
     </style>
 </head>
@@ -751,6 +827,35 @@
                 </div>
             </div>
 
+            <!-- Chart Section -->
+            <div class="chart-section">
+                <div class="chart-header">
+                    <h2>📈 Selected Features Analysis</h2>
+                    <button class="btn-download" id="downloadBtn" onclick="downloadPDF()" disabled>
+                        <i class="fas fa-download"></i> Download PDF Report
+                    </button>
+                </div>
+                
+                <div class="chart-container">
+                    <canvas id="selectedFeaturesChart"></canvas>
+                </div>
+                
+                <div class="chart-stats">
+                    <div class="chart-stat">
+                        <div class="chart-stat-label">Total Selected</div>
+                        <div class="chart-stat-value" id="chartTotal">0</div>
+                    </div>
+                    <div class="chart-stat">
+                        <div class="chart-stat-label">Module with Most Selections</div>
+                        <div class="chart-stat-value" id="chartTopModule">—</div>
+                    </div>
+                    <div class="chart-stat">
+                        <div class="chart-stat-label">Completion Rate</div>
+                        <div class="chart-stat-value" id="chartCompletionRate">0%</div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Features Container -->
             <div class="features-container">
                 <div class="features-grid" id="featuresContent"></div>
@@ -803,12 +908,14 @@
             <div class="footer-section">
                 <div class="footer-credit">
                     <p><strong>Powered by:</strong> Umair Wali</p>
+                    <p><strong>Created by:</strong> Umair Wali</p>
                     <p style="margin-top: 12px; font-size: 12px; opacity: 0.8;">© 2024 ERPNext Features Checklist. All rights reserved.</p>
                 </div>
             </div>
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script>
         const erpnextFeatures = {
             accounting: {
@@ -1045,6 +1152,7 @@
         let selectedFeatures = {};
         const storageKey = 'erpnext-features-selected';
         let currentFeatureData = null;
+        let chart = null;
 
         function loadData() {
             const saved = localStorage.getItem(storageKey);
@@ -1061,6 +1169,7 @@
             loadData();
             renderModuleTabs();
             selectModule(Object.keys(erpnextFeatures)[0]);
+            updateChart();
         }
 
         function renderModuleTabs() {
@@ -1178,8 +1287,8 @@
             }
             saveData();
             updateProgress();
+            updateChart();
             
-            // Update card footer
             const card = checkbox.closest('.feature-card-footer');
             if (card) {
                 const status = card.querySelector('.feature-status');
@@ -1197,6 +1306,129 @@
             document.getElementById('completedFeatures').textContent = selected;
             document.getElementById('completionPercent').textContent = percent + '%';
             document.getElementById('progressFill').style.width = percent + '%';
+        }
+
+        function updateChart() {
+            const modules = Object.keys(erpnextFeatures);
+            const selectedCounts = modules.map(module => {
+                const features = erpnextFeatures[module].features;
+                return Object.keys(features).filter(f => selectedFeatures[`${module}-${f}`]).length;
+            });
+
+            const totalSelected = selectedCounts.reduce((a, b) => a + b, 0);
+            const allFeatures = Object.values(erpnextFeatures).reduce((sum, mod) => sum + Object.keys(mod.features).length, 0);
+            const completionRate = allFeatures > 0 ? Math.round((totalSelected / allFeatures) * 100) : 0;
+
+            const maxIndex = selectedCounts.indexOf(Math.max(...selectedCounts));
+            const topModule = selectedCounts[maxIndex] > 0 ? modules[maxIndex].charAt(0).toUpperCase() + modules[maxIndex].slice(1) : '—';
+
+            document.getElementById('chartTotal').textContent = totalSelected;
+            document.getElementById('chartTopModule').textContent = topModule;
+            document.getElementById('chartCompletionRate').textContent = completionRate + '%';
+            document.getElementById('downloadBtn').disabled = totalSelected === 0;
+
+            const ctx = document.getElementById('selectedFeaturesChart');
+            if (chart) {
+                chart.destroy();
+            }
+
+            chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: modules.map(m => m.charAt(0).toUpperCase() + m.slice(1)),
+                    datasets: [{
+                        label: 'Selected Features',
+                        data: selectedCounts,
+                        backgroundColor: [
+                            '#3b82f6',
+                            '#f59e0b',
+                            '#8b5cf6',
+                            '#ec4899',
+                            '#14b8a6',
+                            '#ef4444',
+                            '#06b6d4',
+                            '#6366f1'
+                        ],
+                        borderRadius: 8,
+                        borderSkipped: false,
+                        hoverBackgroundColor: '#1e40af'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: true,
+                            labels: {
+                                font: { size: 14, weight: 'bold' }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { font: { size: 12 } }
+                        },
+                        x: {
+                            ticks: { font: { size: 12 } }
+                        }
+                    }
+                }
+            });
+        }
+
+        function downloadPDF() {
+            const selectedList = Object.keys(selectedFeatures)
+                .map(id => {
+                    const [module, feature] = id.split('-').slice(0, -1).join('-').split('-').slice(0);
+                    return id;
+                })
+                .map(id => {
+                    const parts = id.split('-');
+                    const feature = parts[parts.length - 1];
+                    const module = parts.slice(0, -1).join('-');
+                    return `${module.charAt(0).toUpperCase() + module.slice(1)} - ${feature}`;
+                });
+
+            const htmlContent = `
+                <div style="padding: 20px; font-family: Arial, sans-serif;">
+                    <h1 style="color: #0f172a; text-align: center; margin-bottom: 30px;">
+                        🏢 ERPNext Implementation Report
+                    </h1>
+                    
+                    <div style="background: #f3f4f6; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
+                        <h2 style="color: #1e40af; margin: 0 0 15px 0;">📊 Summary</h2>
+                        <p><strong>Total Features Selected:</strong> ${Object.keys(selectedFeatures).length}</p>
+                        <p><strong>Completion Rate:</strong> ${document.getElementById('chartCompletionRate').textContent}</p>
+                        <p><strong>Generated Date:</strong> ${new Date().toLocaleDateString()}</p>
+                    </div>
+
+                    <div style="background: #e0f2fe; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
+                        <h2 style="color: #0369a1; margin: 0 0 15px 0;">✓ Selected Features</h2>
+                        <ul style="list-style: none; padding: 0;">
+                            ${selectedList.map(item => `<li style="padding: 8px 0; border-bottom: 1px solid #bae6fd;">✓ ${item}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div style="background: #f0f9ff; padding: 20px; border-radius: 8px;">
+                        <p style="color: #0369a1; font-size: 12px;">
+                            📋 This report was generated from the ERPNext Features Checklist.<br>
+                            For more information, contact: umairwali6@gmail.com
+                        </p>
+                    </div>
+                </div>
+            `;
+
+            const opt = {
+                margin: 10,
+                filename: `ERPNext-Implementation-${new Date().toISOString().split('T')[0]}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' }
+            };
+
+            html2pdf().set(opt).from(htmlContent).save();
         }
 
         document.getElementById('searchInput').addEventListener('input', (e) => {
