@@ -19,7 +19,6 @@
         
         .container { max-width: 1400px; margin: 0 auto; }
         
-        /* Header */
         header {
             background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
             border-bottom: 3px solid #3b82f6;
@@ -102,12 +101,10 @@
             font-size: 16px;
         }
         
-        /* Main Wrapper */
         .main-wrapper {
             padding: 30px 20px;
         }
         
-        /* Hero Section */
         .hero-section {
             background: white;
             border-radius: 12px;
@@ -166,7 +163,6 @@
             opacity: 0.9;
         }
         
-        /* Search & Filter */
         .search-section {
             background: white;
             padding: 20px;
@@ -204,7 +200,6 @@
             pointer-events: none;
         }
         
-        /* Module Tabs */
         .modules-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -240,7 +235,6 @@
             box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
         }
         
-        /* Chart Section */
         .chart-section {
             background: white;
             border-radius: 12px;
@@ -322,7 +316,6 @@
             margin-top: 5px;
         }
         
-        /* Features Container */
         .features-container {
             background: white;
             border-radius: 12px;
@@ -465,7 +458,6 @@
             background: #c7d2fe;
         }
         
-        /* Modal */
         .modal {
             display: none;
             position: fixed;
@@ -632,7 +624,6 @@
             background: #d1d5db;
         }
         
-        /* Progress */
         .progress-section {
             background: white;
             border-radius: 12px;
@@ -660,7 +651,6 @@
             transition: width 0.3s;
         }
         
-        /* Footer */
         footer {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: #cbd5e1;
@@ -915,7 +905,6 @@
         </div>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script>
         const erpnextFeatures = {
             accounting: {
@@ -932,25 +921,25 @@
                         icon: '💱',
                         description: 'Handle transactions in different currencies automatically',
                         benefits: ['Real-time exchange rates', 'Currency conversion', 'Multi-currency reports'],
-                        explanation: 'Work with international clients? Multi-currency lets you invoice in USD, EUR, GBP, etc.\n\nExample:\n- Invoice USD $1000 to US client\n- Auto converts to PKR at 278/USD\n- Shows PKR 278,000 in your ledger'
+                        explanation: 'Work with international clients? Multi-currency lets you invoice in USD, EUR, GBP, etc.'
                     },
                     'Bank Reconciliation': {
                         icon: '🏦',
                         description: 'Match your bank statement with accounting records',
                         benefits: ['Find errors quickly', 'Verify deposits', 'Reconcile differences'],
-                        explanation: 'Compare your bank statement with your accounting records.\n\nExample:\nBank Statement shows: 50,000\nYour Record shows: 50,000\n→ Reconciled ✓\n\nIf they don\'t match, you find the error!'
+                        explanation: 'Compare your bank statement with your accounting records.'
                     },
                     'Budget Management': {
                         icon: '📊',
                         description: 'Plan spending and track actual vs budgeted amounts',
                         benefits: ['Control spending', 'Plan ahead', 'Monitor performance'],
-                        explanation: 'Create a budget for what you plan to spend.\n\nExample:\nBudget for Salaries: 100,000\nActual Spent: 95,000\nRemaining: 5,000\n→ You\'re under budget!'
+                        explanation: 'Create a budget for what you plan to spend.'
                     },
                     'GST/VAT': {
                         icon: '🧾',
                         description: 'Automatically calculate and track sales tax',
                         benefits: ['Auto-calculate tax', 'Tax reports', 'Compliance ready'],
-                        explanation: 'GST (Goods and Services Tax) is automatically calculated.\n\nExample:\nProduct: 100\nGST 17%: 17\nTotal: 117'
+                        explanation: 'GST (Goods and Services Tax) is automatically calculated.'
                     }
                 }
             },
@@ -962,25 +951,25 @@
                         icon: '📋',
                         description: 'Define what materials/components go into your product',
                         benefits: ['Know what goes in', 'Track components', 'Cost calculation'],
-                        explanation: 'A BOM is a recipe for your product.\n\nExample - Making a Bicycle BOM:\n\n📋 BICYCLE (1 unit)\n├─ Frame Assembly (1)\n│  ├─ Steel Tube (2 pieces)\n│  ├─ Welding Rod (0.5 kg)\n│  └─ Paint (1 liter)\n├─ Wheel Assembly (2)\n│  ├─ Rim (2 pieces)\n│  └─ Tire (2 pieces)\n└─ Brake System (1 set)'
+                        explanation: 'A BOM is a recipe for your product.'
                     },
                     'Work Orders': {
                         icon: '⚙️',
                         description: 'Create production tasks and track their progress',
                         benefits: ['Track production', 'Allocate resources', 'Monitor progress'],
-                        explanation: 'A Work Order tells the factory to make something.\n\nExample:\n🏭 WORK ORDER\n- Product: Bicycle\n- Quantity: 100\n- Status: In Progress\n- 45 completed, 55 remaining\n- Due: 2024-02-15'
+                        explanation: 'A Work Order tells the factory to make something.'
                     },
                     'Quality Control': {
                         icon: '✅',
                         description: 'Inspect products before they leave the factory',
                         benefits: ['Ensure quality', 'Find defects', 'Maintain standards'],
-                        explanation: 'Before shipping, check if products are good.\n\nExample:\n✓ Check - Bicycle Strength: PASS\n✓ Check - Brake System: PASS\n✗ Check - Paint Quality: FAIL\n→ Don\'t ship this unit'
+                        explanation: 'Before shipping, check if products are good.'
                     },
                     'Scrap Management': {
                         icon: '🗑️',
                         description: 'Track waste and damaged materials during production',
                         benefits: ['Record waste', 'Calculate losses', 'Reduce scrap'],
-                        explanation: 'Some material becomes waste during production.\n\nExample:\nBicycle Production:\n- Materials used: 100 kg\n- Scrap generated: 5 kg\n- Scrap cost: 5 × 200 = 1000 PKR\n→ This loss is recorded'
+                        explanation: 'Some material becomes waste during production.'
                     }
                 }
             },
@@ -992,25 +981,25 @@
                         icon: '🏢',
                         description: 'Manage stock across multiple locations',
                         benefits: ['Track multiple stores', 'Transfer stock', 'Avoid overselling'],
-                        explanation: 'Your company has multiple warehouses.\n\nExample:\n🏭 Main Warehouse: 500 items\n🏪 Retail Store 1: 200 items\n🏪 Retail Store 2: 150 items\n→ Total: 850 items\n→ System knows where each item is'
+                        explanation: 'Your company has multiple warehouses.'
                     },
                     'Batch Tracking': {
                         icon: '🏷️',
                         description: 'Track items by batch number for recalls/expiry',
                         benefits: ['Track expiry dates', 'Quick recalls', 'Quality control'],
-                        explanation: 'Each batch of items is tracked separately.\n\nExample:\nBatch A: 100 items, Expiry 2024-12-31\nBatch B: 50 items, Expiry 2025-06-30\n→ If Batch A has problems, recall only that batch'
+                        explanation: 'Each batch of items is tracked separately.'
                     },
                     'Stock Reorder': {
                         icon: '🔔',
                         description: 'Automatically create purchase orders when stock is low',
                         benefits: ['Never run out', 'Automatic ordering', 'Set and forget'],
-                        explanation: 'Set minimum stock levels, system auto-orders when low.\n\nExample:\nMin Stock: 10 items\nCurrent Stock: 8 items\n→ System creates Purchase Order automatically\n→ Supplier delivers, stock back to normal'
+                        explanation: 'Set minimum stock levels, system auto-orders when low.'
                     },
                     'Stock Valuation': {
                         icon: '💵',
                         description: 'Calculate the value of your inventory',
                         benefits: ['Know inventory cost', 'Financial reports', 'Profit calculation'],
-                        explanation: 'Know what your stored items are worth.\n\nExample:\n100 items × 50 each = 5000 PKR\nYour inventory is worth 5000 PKR\n→ This shows on Balance Sheet'
+                        explanation: 'Know what your stored items are worth.'
                     }
                 }
             },
@@ -1022,19 +1011,19 @@
                         icon: '📝',
                         description: 'Create customer orders and track delivery',
                         benefits: ['Customer records', 'Delivery tracking', 'Revenue tracking'],
-                        explanation: 'When a customer orders, you create a Sales Order.\n\nExample:\n👤 Customer: ABC Company\n📋 Order Date: 2024-01-10\n📦 Item: Bicycle, Qty: 50\n💰 Price: 50 × 1000 = 50,000 PKR\n📍 Status: Confirmed'
+                        explanation: 'When a customer orders, you create a Sales Order.'
                     },
                     'Pricing Rules': {
                         icon: '💰',
                         description: 'Set different prices based on quantity or customer',
                         benefits: ['Bulk discounts', 'Customer rates', 'Automatic pricing'],
-                        explanation: 'Charge different prices for bulk orders.\n\nExample:\n1-10 items: 100 PKR each\n11-50 items: 90 PKR each (10% off)\n50+ items: 80 PKR each (20% off)\n→ Automatically applied at checkout'
+                        explanation: 'Charge different prices for bulk orders.'
                     },
                     'Delivery Tracking': {
                         icon: '🚚',
                         description: 'Track when products are shipped and delivered',
                         benefits: ['Customer visibility', 'Proof of delivery', 'Track shipments'],
-                        explanation: 'Track shipment from factory to customer.\n\nExample:\n📦 Order Date: 2024-01-10\n🚚 Shipped: 2024-01-12\n✓ Delivered: 2024-01-15\n→ Customer knows exact status'
+                        explanation: 'Track shipment from factory to customer.'
                     }
                 }
             },
@@ -1046,19 +1035,19 @@
                         icon: '🤝',
                         description: 'Manage all your suppliers and their information',
                         benefits: ['Supplier contact', 'Payment history', 'Performance rating'],
-                        explanation: 'Store supplier details and track relationships.\n\nExample:\n🏭 Supplier: Steel Co.\n📞 Contact: 03001234567\n💰 Terms: Net 30 days\n⭐ Rating: 4.5/5'
+                        explanation: 'Store supplier details and track relationships.'
                     },
                     'Purchase Orders': {
                         icon: '📑',
                         description: 'Create orders from suppliers to buy materials',
                         benefits: ['Supplier requests', 'Quantity tracking', 'Payment tracking'],
-                        explanation: 'You create a PO to tell supplier what you need.\n\nExample:\n🛒 PO to Steel Co.\n📦 Item: Steel Tubes, Qty: 1000\n💰 Price: 1000 × 50 = 50,000 PKR\n📅 Delivery: 2024-02-01'
+                        explanation: 'You create a PO to tell supplier what you need.'
                     },
                     'Quality Check': {
                         icon: '🔍',
                         description: 'Inspect materials when they arrive from supplier',
                         benefits: ['Verify quality', 'Reject bad items', 'Supplier feedback'],
-                        explanation: 'Check received materials for quality.\n\nExample:\nReceived: 1000 Steel Tubes\n✓ Check 1: Dimensions OK\n✓ Check 2: Surface Quality OK\n✗ Check 3: 10 tubes rusty\n→ Reject 10 tubes, accept 990'
+                        explanation: 'Check received materials for quality.'
                     }
                 }
             },
@@ -1070,25 +1059,25 @@
                         icon: '👤',
                         description: 'Maintain employee information and history',
                         benefits: ['Employee database', 'Salary records', 'Personal info'],
-                        explanation: 'Store all employee information.\n\nExample:\n👤 Name: Ahmed Khan\n📧 Email: ahmed@company.com\n💼 Designation: Manager\n💰 Salary: 100,000 PKR\n📍 Department: Production'
+                        explanation: 'Store all employee information.'
                     },
                     'Attendance': {
                         icon: '📅',
                         description: 'Track employee attendance daily',
                         benefits: ['Absence tracking', 'Late tracking', 'Attendance reports'],
-                        explanation: 'Record who came and who didn\'t.\n\nExample:\n📅 Date: 2024-01-10\n✓ Ahmed: Present\n✓ Fatima: Present\n✗ Hassan: Absent\n⏰ Ali: Late (10 min)\n→ Used for salary calculation'
+                        explanation: 'Record who came and who didn\'t.'
                     },
                     'Salary Processing': {
                         icon: '💳',
                         description: 'Calculate and process employee salaries',
                         benefits: ['Automatic calculation', 'Tax deduction', 'Salary slips'],
-                        explanation: 'Calculate and pay employees.\n\nExample:\nBasic Salary: 100,000\nBonus: 10,000\nTax (10%): -11,000\nNet Pay: 99,000\n→ Automatic payment'
+                        explanation: 'Calculate and pay employees.'
                     },
                     'Leave Management': {
                         icon: '🏖️',
                         description: 'Track employee leave and approvals',
                         benefits: ['Leave requests', 'Approval workflow', 'Leave balance'],
-                        explanation: 'Employees request leave, manager approves.\n\nExample:\n👤 Ahmed requests: Sick leave\n📅 Date: 2024-01-20\n✓ Manager approves\n→ Ahmed doesn\'t need to come'
+                        explanation: 'Employees request leave, manager approves.'
                     }
                 }
             },
@@ -1100,19 +1089,19 @@
                         icon: '🎯',
                         description: 'Track potential customers and sales opportunities',
                         benefits: ['Lead source', 'Contact info', 'Conversation history'],
-                        explanation: 'A "Lead" is a potential customer.\n\nExample:\n🎯 Lead: XYZ Company\n📞 Contact: 03001234567\n📝 Note: Interested in 100 bicycles\n🔄 Status: Contacted, waiting for reply'
+                        explanation: 'A "Lead" is a potential customer.'
                     },
                     'Opportunity Pipeline': {
                         icon: '📈',
                         description: 'Track sales opportunities through different stages',
                         benefits: ['Sales stages', 'Probability', 'Revenue forecast'],
-                        explanation: 'Track progress from lead to sale.\n\nExample:\n1️⃣ Lead (50%): Initial contact\n2️⃣ Qualified (70%): They showed interest\n3️⃣ Proposal (90%): We sent quote\n4️⃣ Won (100%): Deal closed!\n→ Estimate revenue at each stage'
+                        explanation: 'Track progress from lead to sale.'
                     },
                     'Email Campaigns': {
                         icon: '📧',
                         description: 'Send marketing emails to customers',
                         benefits: ['Bulk emails', 'Track opens', 'Click tracking'],
-                        explanation: 'Send mass emails to marketing list.\n\nExample:\n📧 Campaign: "50% Off on Bicycles"\n👥 Recipients: 1000\n👁️ Opened: 300\n🔗 Clicked: 50\n💰 Result: 10 sales'
+                        explanation: 'Send mass emails to marketing list.'
                     }
                 }
             },
@@ -1124,25 +1113,25 @@
                         icon: '📋',
                         description: 'Create and track projects from start to finish',
                         benefits: ['Timeline tracking', 'Team assignment', 'Milestone tracking'],
-                        explanation: 'Manage a project like building a website.\n\nExample:\n🏗️ Project: Build Website\n👥 Team Lead: Ahmed\n📅 Start: 2024-01-01\n📅 End: 2024-03-31\n✓ Status: 60% complete'
+                        explanation: 'Manage a project like building a website.'
                     },
                     'Task Management': {
                         icon: '✓',
                         description: 'Break project into tasks and assign to team',
                         benefits: ['Task assignment', 'Priority setting', 'Progress tracking'],
-                        explanation: 'Divide project into small tasks.\n\nExample:\nProject: Build Website\n├─ Task 1: Design UI (Assigned: Sara)\n├─ Task 2: Write Code (Assigned: Ali)\n├─ Task 3: Test (Assigned: Fatima)\n└─ Task 4: Deploy (Assigned: Hassan)\n→ Each person knows what to do'
+                        explanation: 'Divide project into small tasks.'
                     },
                     'Time Tracking': {
                         icon: '⏱️',
                         description: 'Record hours worked by team members',
                         benefits: ['Billing clients', 'Productivity tracking', 'Cost calculation'],
-                        explanation: 'Track how much time people spent.\n\nExample:\nAhmed: 40 hours @ 1000/hour = 40,000\nAli: 35 hours @ 1000/hour = 35,000\nTotal Project Cost: 75,000\n→ Bill client accordingly'
+                        explanation: 'Track how much time people spent.'
                     },
                     'Gantt Chart': {
                         icon: '📊',
                         description: 'Visual timeline showing project tasks and dependencies',
                         benefits: ['Timeline visualization', 'Dependency tracking', 'Schedule analysis'],
-                        explanation: 'Visual timeline of your project.\n\nExample:\nTask 1: Design ▪▪▪▪ (Jan)\nTask 2: Code ▪▪▪▪▪▪ (Feb-Mar)\nTask 3: Test ▪▪ (Apr)\nTask 4: Deploy ▪ (May)\n→ See which tasks happen when'
+                        explanation: 'Visual timeline of your project.'
                     }
                 }
             }
@@ -1379,53 +1368,119 @@
         }
 
         function downloadPDF() {
-            const selectedList = Object.keys(selectedFeatures)
-                .map(id => {
-                    const [module, feature] = id.split('-').slice(0, -1).join('-').split('-').slice(0);
-                    return id;
-                })
-                .map(id => {
-                    const parts = id.split('-');
-                    const feature = parts[parts.length - 1];
-                    const module = parts.slice(0, -1).join('-');
-                    return `${module.charAt(0).toUpperCase() + module.slice(1)} - ${feature}`;
-                });
+            // Group selected features by module
+            const moduleFeatures = {};
+            Object.keys(selectedFeatures).forEach(id => {
+                const parts = id.split('-');
+                const featureName = parts[parts.length - 1];
+                const moduleName = parts.slice(0, -1).join('-');
+                
+                if (!moduleFeatures[moduleName]) {
+                    moduleFeatures[moduleName] = [];
+                }
+                moduleFeatures[moduleName].push(featureName);
+            });
+
+            // Create detailed HTML for PDF
+            let moduleDetailsHTML = '';
+            Object.keys(moduleFeatures).forEach(module => {
+                const features = moduleFeatures[module];
+                const moduleData = erpnextFeatures[module];
+                const displayName = module.charAt(0).toUpperCase() + module.slice(1);
+                
+                moduleDetailsHTML += `
+                    <div style="margin-bottom: 25px; page-break-inside: avoid;">
+                        <div style="background: linear-gradient(135deg, ${moduleData.color} 0%, ${moduleData.color}99 100%); color: white; padding: 12px 15px; border-radius: 6px; margin-bottom: 12px;">
+                            <h3 style="margin: 0; font-size: 16px; font-weight: bold;">
+                                ${moduleData.icon} ${displayName} Module
+                            </h3>
+                            <p style="margin: 5px 0 0 0; font-size: 12px; opacity: 0.9;">
+                                ${features.length} feature${features.length > 1 ? 's' : ''} selected
+                            </p>
+                        </div>
+                        <div style="background: #f9fafb; padding: 12px; border-radius: 6px; border-left: 4px solid ${moduleData.color};">
+                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                ${features.map(feature => {
+                                    const featureData = moduleData.features[feature];
+                                    return `
+                                        <li style="padding: 10px 0; border-bottom: 1px solid #e5e7eb;">
+                                            <div style="display: flex; align-items: flex-start; gap: 10px;">
+                                                <span style="color: #3b82f6; font-size: 18px; flex-shrink: 0;">✓</span>
+                                                <div style="flex: 1;">
+                                                    <strong style="color: #0f172a; display: block; margin-bottom: 3px;">${featureData.icon} ${feature}</strong>
+                                                    <p style="color: #6b7280; font-size: 12px; margin: 0; line-height: 1.4;">${featureData.description}</p>
+                                                    <div style="margin-top: 6px; font-size: 11px; color: #64748b;">
+                                                        <strong>Benefits:</strong> ${featureData.benefits.join(', ')}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    `;
+                                }).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            });
+
+            const totalFeatures = Object.keys(selectedFeatures).length;
+            const allFeatures = Object.values(erpnextFeatures).reduce((sum, mod) => sum + Object.keys(mod.features).length, 0);
 
             const htmlContent = `
-                <div style="padding: 20px; font-family: Arial, sans-serif;">
-                    <h1 style="color: #0f172a; text-align: center; margin-bottom: 30px;">
-                        🏢 ERPNext Implementation Report
-                    </h1>
-                    
-                    <div style="background: #f3f4f6; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
-                        <h2 style="color: #1e40af; margin: 0 0 15px 0;">📊 Summary</h2>
-                        <p><strong>Total Features Selected:</strong> ${Object.keys(selectedFeatures).length}</p>
-                        <p><strong>Completion Rate:</strong> ${document.getElementById('chartCompletionRate').textContent}</p>
-                        <p><strong>Generated Date:</strong> ${new Date().toLocaleDateString()}</p>
+                <div style="padding: 30px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #1f2937;">
+                    <div style="text-align: center; margin-bottom: 40px; border-bottom: 3px solid #3b82f6; padding-bottom: 20px;">
+                        <h1 style="color: #0f172a; margin: 0 0 10px 0; font-size: 28px;">🏢 ERPNext Implementation Report</h1>
+                        <p style="color: #6b7280; margin: 0; font-size: 14px;">Selected Features & Modules Analysis</p>
                     </div>
 
-                    <div style="background: #e0f2fe; padding: 20px; border-radius: 8px; margin-bottom: 30px;">
-                        <h2 style="color: #0369a1; margin: 0 0 15px 0;">✓ Selected Features</h2>
-                        <ul style="list-style: none; padding: 0;">
-                            ${selectedList.map(item => `<li style="padding: 8px 0; border-bottom: 1px solid #bae6fd;">✓ ${item}</li>`).join('')}
-                        </ul>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-bottom: 30px;">
+                        <div style="background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%); color: white; padding: 15px; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 24px; font-weight: bold; margin-bottom: 5px;">${totalFeatures}</div>
+                            <div style="font-size: 12px; opacity: 0.9;">Features Selected</div>
+                        </div>
+                        <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 15px; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 24px; font-weight: bold; margin-bottom: 5px;">${Object.keys(moduleFeatures).length}</div>
+                            <div style="font-size: 12px; opacity: 0.9;">Modules Covered</div>
+                        </div>
+                        <div style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white; padding: 15px; border-radius: 8px; text-align: center;">
+                            <div style="font-size: 24px; font-weight: bold; margin-bottom: 5px;">${Math.round((totalFeatures / allFeatures) * 100)}%</div>
+                            <div style="font-size: 12px; opacity: 0.9;">Completion</div>
+                        </div>
                     </div>
 
-                    <div style="background: #f0f9ff; padding: 20px; border-radius: 8px;">
-                        <p style="color: #0369a1; font-size: 12px;">
-                            📋 This report was generated from the ERPNext Features Checklist.<br>
-                            For more information, contact: umairwali6@gmail.com
+                    <div style="background: #f0f9ff; padding: 15px; border-radius: 8px; margin-bottom: 30px; border-left: 4px solid #3b82f6;">
+                        <p style="margin: 5px 0; font-size: 13px; color: #0369a1;">
+                            <strong>Generated:</strong> ${new Date().toLocaleDateString()} at ${new Date().toLocaleTimeString()}
+                        </p>
+                        <p style="margin: 5px 0; font-size: 13px; color: #0369a1;">
+                            <strong>Report Type:</strong> ERPNext Features Implementation Checklist
+                        </p>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <h2 style="color: #0f172a; font-size: 20px; margin-bottom: 20px; border-bottom: 2px solid #3b82f6; padding-bottom: 10px;">
+                            📋 Selected Features by Module
+                        </h2>
+                        ${moduleDetailsHTML}
+                    </div>
+
+                    <div style="margin-top: 40px; padding-top: 20px; border-top: 2px solid #e5e7eb; text-align: center;">
+                        <p style="color: #6b7280; font-size: 12px; margin: 0;">
+                            <strong>ERPNext Features Checklist</strong><br>
+                            Created by: Umair Wali<br>
+                            Email: umairwali6@gmail.com | Phone: +92 308 261 4004
                         </p>
                     </div>
                 </div>
             `;
 
             const opt = {
-                margin: 10,
-                filename: `ERPNext-Implementation-${new Date().toISOString().split('T')[0]}.pdf`,
+                margin: [10, 10, 10, 10],
+                filename: `ERPNext-Features-Report-${new Date().toISOString().split('T')[0]}.pdf`,
                 image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2 },
-                jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' }
+                html2canvas: { scale: 2, useCORS: true },
+                jsPDF: { orientation: 'portrait', unit: 'mm', format: 'a4' },
+                pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
             };
 
             html2pdf().set(opt).from(htmlContent).save();
