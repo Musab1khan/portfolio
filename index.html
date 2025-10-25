@@ -11,7 +11,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             font-family: 'Inter', sans-serif;
@@ -88,21 +87,6 @@
             transform: translateY(0);
             transition: all 0.8s ease;
         }
-
-        .erpnext-btn {
-            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-            animation: pulse-glow 2s infinite;
-        }
-
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 10px rgba(245, 158, 11, 0.5); }
-            50% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.8); }
-        }
-
-        .erpnext-btn:hover {
-            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
-            transform: translateY(-2px);
-        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900">
@@ -114,26 +98,15 @@
                     <span class="text-2xl font-bold text-slate-800">Umair Wali</span>
                 </div>
                 <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
+                    <div class="ml-10 flex items-baseline space-x-8">
                         <a href="#home" class="text-slate-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">Home</a>
                         <a href="#skills" class="text-slate-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">Skills</a>
                         <a href="#projects" class="text-slate-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">Projects</a>
                         <a href="#ai-demo" class="text-slate-700 hover:text-teal-600 px-3 py-2 text-sm font-medium transition-colors">AI Demo</a>
-                        
-                        <!-- NEW: ERPNext Features Guide Button -->
-                        <a href="advanced-erpnext-features.html" class="erpnext-btn text-white px-4 py-2 rounded-lg text-sm font-bold hover:shadow-lg transition-all flex items-center gap-2" title="Interactive ERPNext Features Guide for Clients">
-                            <i class="fas fa-book"></i> ERPNext Guide
-                        </a>
-
                         <a href="contact.html" class="bg-teal-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-teal-700 transition-colors">Contact</a>
+                        <a href="advanced-erpnext-features.html" class="erpnext-btn text-white px-4 py-2 rounded-lg text-sm font-bold hover:shadow-lg transition-all flex items-center gap-2" title="Interactive ERPNext Features Guide for Clients"><i class="fas fa-book"></i> ERPNext Guide
+                        </a>
                     </div>
-                </div>
-
-                <!-- Mobile Menu Button -->
-                <div class="md:hidden">
-                    <a href="advanced-erpnext-features.html" class="erpnext-btn text-white px-3 py-2 rounded-lg text-sm font-bold inline-flex items-center gap-1">
-                        <i class="fas fa-book"></i> Guide
-                    </a>
                 </div>
             </div>
         </div>
@@ -149,7 +122,7 @@
                         <span class="block text-teal-400">& ERPNext Expert</span>
                     </h1>
                     <div class="text-xl mb-8 h-16">
-                        <span id="typed-text" class="text-gray-200">Building custom ERP solutions...</span>
+                        <span id="typed-text" class="text-gray-200"></span>
                     </div>
                     <p class="text-lg text-gray-300 mb-8 leading-relaxed">
                         Specialized in building custom ERP modules, AI assistants, and IT automation tools. 
@@ -159,9 +132,6 @@
                         <a href="#projects" class="bg-teal-600 hover:bg-teal-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors text-center">
                             View My Work
                         </a>
-                        <a href="advanced-erpnext-features.html" class="erpnext-btn text-white px-8 py-3 rounded-lg font-semibold transition-all text-center flex items-center justify-center gap-2">
-                            <i class="fas fa-book"></i> ERPNext Features
-                        </a>
                         <a href="contact.html" class="border-2 border-white text-white hover:bg-white hover:text-slate-800 px-8 py-3 rounded-lg font-semibold transition-colors text-center">
                             Get In Touch
                         </a>
@@ -169,36 +139,14 @@
                 </div>
                 <div class="flex justify-center">
                     <div class="relative">
-                        <div class="w-96 h-96 bg-gradient-to-br from-teal-500 to-blue-600 rounded-2xl shadow-2xl flex items-center justify-center">
-                            <div class="text-center text-white">
-                                <div class="text-6xl mb-4">💼</div>
-                                <h3 class="text-2xl font-bold">Professional Profile</h3>
-                                <p class="text-sm opacity-80 mt-2">Python • ERPNext • AI • Automation</p>
-                            </div>
-                        </div>
+                        <img src="resources/hero-profile.jpg" alt="Professional Profile" 
+                             class="w-96 h-96 object-cover rounded-2xl shadow-2xl">
                         <div class="absolute -bottom-6 -right-6 bg-teal-600 text-white p-4 rounded-xl">
                             <div class="text-2xl font-bold">5+</div>
                             <div class="text-sm">Years Experience</div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ERPNext Guide Highlight Section -->
-    <section class="py-12 bg-gradient-to-r from-amber-50 to-orange-50 border-t-4 border-amber-500">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between flex-wrap gap-6">
-                <div>
-                    <h2 class="text-2xl font-bold text-slate-800 mb-2">
-                        <i class="fas fa-star text-amber-500"></i> Share ERPNext Features With Clients
-                    </h2>
-                    <p class="text-gray-600">An interactive guide where clients can learn about ERPNext features, select what they need, and understand implementation requirements.</p>
-                </div>
-                <a href="advanced-erpnext-features.html" class="erpnext-btn text-white px-8 py-4 rounded-lg font-bold text-lg hover:shadow-2xl transition-all flex items-center gap-2">
-                    <i class="fas fa-rocket"></i> Open Guide Now
-                </a>
             </div>
         </div>
     </section>
@@ -214,6 +162,10 @@
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="section-reveal">
+                    <div id="skills-radar" class="h-96 w-full"></div>
+                </div>
+                
                 <div class="space-y-6 section-reveal">
                     <div class="skill-card bg-white p-6 rounded-xl border border-gray-200">
                         <div class="flex justify-between items-center mb-3">
@@ -221,7 +173,7 @@
                             <span class="text-teal-600 font-bold">95%</span>
                         </div>
                         <div class="w-full bg-gray-200 rounded-full h-3">
-                            <div class="bg-teal-600 h-3 rounded-full" style="width: 95%"></div>
+                            <div class="bg-teal-600 h-3 rounded-full skill-progress" data-width="95"></div>
                         </div>
                         <p class="text-sm text-gray-600 mt-2">Django, Flask, Automation Scripts, API Development</p>
                     </div>
@@ -232,7 +184,7 @@
                             <span class="text-teal-600 font-bold">90%</span>
                         </div>
                         <div class="w-full bg-gray-200 rounded-full h-3">
-                            <div class="bg-teal-600 h-3 rounded-full" style="width: 90%"></div>
+                            <div class="bg-teal-600 h-3 rounded-full skill-progress" data-width="90"></div>
                         </div>
                         <p class="text-sm text-gray-600 mt-2">Custom Apps, Workflows, Integrations (v14 & v15)</p>
                     </div>
@@ -243,7 +195,7 @@
                             <span class="text-teal-600 font-bold">85%</span>
                         </div>
                         <div class="w-full bg-gray-200 rounded-full h-3">
-                            <div class="bg-teal-600 h-3 rounded-full" style="width: 85%"></div>
+                            <div class="bg-teal-600 h-3 rounded-full skill-progress" data-width="85"></div>
                         </div>
                         <p class="text-sm text-gray-600 mt-2">LLMs, OCR, Face Recognition, Task Automation</p>
                     </div>
@@ -254,37 +206,9 @@
                             <span class="text-teal-600 font-bold">80%</span>
                         </div>
                         <div class="w-full bg-gray-200 rounded-full h-3">
-                            <div class="bg-teal-600 h-3 rounded-full" style="width: 80%"></div>
+                            <div class="bg-teal-600 h-3 rounded-full skill-progress" data-width="80"></div>
                         </div>
                         <p class="text-sm text-gray-600 mt-2">MikroTik, pfSense, Linux, Security Tools</p>
-                    </div>
-                </div>
-
-                <div class="section-reveal">
-                    <div class="bg-gradient-to-br from-teal-500 to-blue-600 text-white p-8 rounded-2xl">
-                        <h3 class="text-2xl font-bold mb-6">Why Choose Me?</h3>
-                        <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <span class="text-2xl mr-4">✓</span>
-                                <span>10+ years in IT and 5+ years in ERP development</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-2xl mr-4">✓</span>
-                                <span>Proven track record with Fortune 500 companies</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-2xl mr-4">✓</span>
-                                <span>Cost-effective solutions without compromising quality</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-2xl mr-4">✓</span>
-                                <span>24/7 support and continuous improvement</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-2xl mr-4">✓</span>
-                                <span>Expertise in ERPNext v14, v15 and custom modules</span>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>
@@ -301,76 +225,211 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="project-card rounded-2xl overflow-hidden shadow-lg">
-                    <div class="h-48 bg-gradient-to-br from-teal-500 to-blue-600 flex items-center justify-center">
-                        <div class="text-6xl">🏭</div>
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold text-slate-800 mb-4">ISP Management Software</h3>
-                        <p class="text-gray-600 mb-6">
-                            Comprehensive ISP management system with MikroTik integration, automated billing, and customer management.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm">React</span>
-                            <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm">Django</span>
-                            <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm">MikroTik</span>
+            <div class="splide section-reveal" id="projects-carousel">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <li class="splide__slide">
+                            <div class="project-card rounded-2xl overflow-hidden shadow-lg">
+                                <img src="resources/erp-dashboard.jpg" alt="ISP Management Software" class="w-full h-48 object-cover">
+                                <div class="p-8">
+                                    <h3 class="text-2xl font-bold text-slate-800 mb-4">ISP Management Software</h3>
+                                    <p class="text-gray-600 mb-6">
+                                        Comprehensive ISP management system built with React and Django, featuring MikroTik integration, 
+                                        automated billing, and customer management workflows.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm">React</span>
+                                        <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm">Django</span>
+                                        <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm">MikroTik API</span>
+                                        <span class="bg-teal-100 text-teal-800 px-3 py-1 rounded-full text-sm">PostgreSQL</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-sm text-gray-500">Status: In Development</span>
+                                        <button class="text-teal-600 hover:text-teal-700 font-semibold">Learn More →</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="splide__slide">
+                            <div class="project-card rounded-2xl overflow-hidden shadow-lg">
+                                <img src="resources/ai-automation.jpg" alt="ERPNext AI Assistant" class="w-full h-48 object-cover">
+                                <div class="p-8">
+                                    <h3 class="text-2xl font-bold text-slate-800 mb-4">ERPNext AI Assistant</h3>
+                                    <p class="text-gray-600 mb-6">
+                                        Intelligent AI assistant for ERPNext with offline LLM capabilities, Google Sheets synchronization, 
+                                        and natural language ERP chat support.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">Python</span>
+                                        <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">LLMs</span>
+                                        <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">ERPNext API</span>
+                                        <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">Google Sheets</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-sm text-gray-500">Status: Active</span>
+                                        <button class="text-teal-600 hover:text-teal-700 font-semibold">Learn More →</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="splide__slide">
+                            <div class="project-card rounded-2xl overflow-hidden shadow-lg">
+                                <img src="resources/python-dev.jpg" alt="AI Desktop Assistant" class="w-full h-48 object-cover">
+                                <div class="p-8">
+                                    <h3 class="text-2xl font-bold text-slate-800 mb-4">AI Desktop Assistant</h3>
+                                    <p class="text-gray-600 mb-6">
+                                        Multilingual AI desktop assistant with Urdu and English voice recognition, 
+                                        OCR capabilities, and intelligent task automation.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Python</span>
+                                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Speech Recognition</span>
+                                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">OCR</span>
+                                        <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Tkinter</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-sm text-gray-500">Status: Testing</span>
+                                        <button class="text-teal-600 hover:text-teal-700 font-semibold">Learn More →</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="splide__slide">
+                            <div class="project-card rounded-2xl overflow-hidden shadow-lg">
+                                <img src="resources/erp-dashboard.jpg" alt="Cybersecurity Tools" class="w-full h-48 object-cover">
+                                <div class="p-8">
+                                    <h3 class="text-2xl font-bold text-slate-800 mb-4">Cybersecurity & Linux Tools</h3>
+                                    <p class="text-gray-600 mb-6">
+                                        Internal security tools and server automation scripts for enhanced cybersecurity, 
+                                        network monitoring, and system administration.
+                                    </p>
+                                    <div class="flex flex-wrap gap-2 mb-6">
+                                        <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Bash</span>
+                                        <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Python</span>
+                                        <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Linux</span>
+                                        <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Security</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-sm text-gray-500">Status: Production</span>
+                                        <button class="text-teal-600 hover:text-teal-700 font-semibold">Learn More →</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Assistant Demo Section -->
+    <section id="ai-demo" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 section-reveal">
+                <h2 class="text-4xl font-bold text-slate-800 mb-4">AI Assistant Demo</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Experience the capabilities of my AI assistant technology with interactive demonstrations
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <div class="section-reveal">
+                    <div class="bg-gray-50 rounded-2xl p-8">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white font-bold">AI</span>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-slate-800">ERPNext AI Assistant</h3>
+                                <p class="text-sm text-gray-600">Online & Offline Capabilities</p>
+                            </div>
                         </div>
-                        <span class="text-sm text-gray-500">Status: In Development</span>
+
+                        <div class="space-y-4 mb-6" id="chat-messages" style="height: 300px; overflow-y: auto;">
+                            <div class="chat-bubble bg-teal-100 p-4 rounded-lg ml-12">
+                                <p class="text-sm">Hello! I'm your AI assistant. I can help with ERPNext queries, automation tasks, and system management. What would you like to know?</p>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-2">
+                            <input type="text" id="chat-input" placeholder="Ask me about ERPNext, automation, or Python..." 
+                                   class="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500">
+                            <button onclick="sendMessage()" class="bg-teal-600 text-white px-6 py-2 rounded-lg hover:bg-teal-700 transition-colors">
+                                Send
+                            </button>
+                        </div>
+
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            <button onclick="askQuestion('What ERPNext versions do you support?')" 
+                                    class="text-xs bg-gray-200 text-gray-700 px-3 py-1 rounded-full hover:bg-gray-300 transition-colors">
+                                ERPNext Versions?
+                            </button>
+                            <button onclick="askQuestion('Can you help with automation?')" 
+                                    class="text-xs bg-gray-200 text-gray-700 px-3 py-1 rounded-full hover:bg-gray-300 transition-colors">
+                                Automation Help?
+                            </button>
+                            <button onclick="askQuestion('What AI features are available?')" 
+                                    class="text-xs bg-gray-200 text-gray-700 px-3 py-1 rounded-full hover:bg-gray-300 transition-colors">
+                                AI Features?
+                            </button>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-card rounded-2xl overflow-hidden shadow-lg">
-                    <div class="h-48 bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center">
-                        <div class="text-6xl">🤖</div>
+                <div class="space-y-6 section-reveal">
+                    <div class="bg-gradient-to-r from-teal-50 to-blue-50 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-4">AI Assistant Capabilities</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-teal-600 rounded-full mr-3"></span>
+                                <span class="text-gray-700">Natural language ERPNext queries</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-teal-600 rounded-full mr-3"></span>
+                                <span class="text-gray-700">Offline LLM processing</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-teal-600 rounded-full mr-3"></span>
+                                <span class="text-gray-700">Google Sheets synchronization</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-teal-600 rounded-full mr-3"></span>
+                                <span class="text-gray-700">Urdu + English voice support</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-teal-600 rounded-full mr-3"></span>
+                                <span class="text-gray-700">OCR and document processing</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-2 h-2 bg-teal-600 rounded-full mr-3"></span>
+                                <span class="text-gray-700">Task automation and scheduling</span>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold text-slate-800 mb-4">ERPNext AI Assistant</h3>
-                        <p class="text-gray-600 mb-6">
-                            Intelligent AI assistant for ERPNext with offline LLM, Google Sheets sync, and natural language chat.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">Python</span>
-                            <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">LLMs</span>
-                            <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">ERPNext</span>
-                        </div>
-                        <span class="text-sm text-gray-500">Status: Active</span>
-                    </div>
-                </div>
 
-                <div class="project-card rounded-2xl overflow-hidden shadow-lg">
-                    <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                        <div class="text-6xl">🎙️</div>
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold text-slate-800 mb-4">AI Desktop Assistant</h3>
-                        <p class="text-gray-600 mb-6">
-                            Multilingual AI assistant with Urdu/English voice recognition, OCR, and intelligent automation.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Python</span>
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Speech</span>
-                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">OCR</span>
+                    <div class="bg-amber-50 p-6 rounded-xl">
+                        <h3 class="text-xl font-semibold text-slate-800 mb-3">Technology Stack</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-amber-600">Python</div>
+                                <div class="text-sm text-gray-600">Core Language</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-amber-600">LLMs</div>
+                                <div class="text-sm text-gray-600">AI Models</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-amber-600">Speech</div>
+                                <div class="text-sm text-gray-600">Voice Recognition</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-amber-600">OCR</div>
+                                <div class="text-sm text-gray-600">Text Processing</div>
+                            </div>
                         </div>
-                        <span class="text-sm text-gray-500">Status: Testing</span>
-                    </div>
-                </div>
-
-                <div class="project-card rounded-2xl overflow-hidden shadow-lg">
-                    <div class="h-48 bg-gradient-to-br from-red-500 to-pink-600 flex items-center justify-center">
-                        <div class="text-6xl">🔒</div>
-                    </div>
-                    <div class="p-8">
-                        <h3 class="text-2xl font-bold text-slate-800 mb-4">Security & Linux Tools</h3>
-                        <p class="text-gray-600 mb-6">
-                            Internal security tools and server automation scripts for enhanced cybersecurity and administration.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Bash</span>
-                            <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Python</span>
-                            <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Linux</span>
-                        </div>
-                        <span class="text-sm text-gray-500">Status: Production</span>
                     </div>
                 </div>
             </div>
@@ -384,14 +443,16 @@
                 <div>
                     <h3 class="text-2xl font-bold mb-4">Umair Wali</h3>
                     <p class="text-gray-300 mb-4">
-                        Python Developer & ERPNext Consultant specializing in AI automation and system integration.
+                        Python Developer & ERPNext Functional Consultant specializing in AI automation and system integration.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="mailto:umairwali6@gmail.com" class="text-gray-300 hover:text-teal-400 transition-colors" title="Email">
-                            <i class="fas fa-envelope text-xl"></i>
+                        <a href="mailto:umairwali6@gmail.com" class="text-gray-300 hover:text-teal-400 transition-colors">
+                            <span class="sr-only">Email</span>
+                            📧
                         </a>
-                        <a href="https://wa.me/923082614004" class="text-gray-300 hover:text-teal-400 transition-colors" title="WhatsApp">
-                            <i class="fab fa-whatsapp text-xl"></i>
+                        <a href="https://wa.me/923082614004" class="text-gray-300 hover:text-teal-400 transition-colors">
+                            <span class="sr-only">WhatsApp</span>
+                            💬
                         </a>
                     </div>
                 </div>
@@ -399,32 +460,29 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Services</h4>
                     <ul class="space-y-2 text-gray-300">
-                        <li><i class="fas fa-check text-teal-400 mr-2"></i>ERPNext Customization</li>
-                        <li><i class="fas fa-check text-teal-400 mr-2"></i>AI Assistant Development</li>
-                        <li><i class="fas fa-check text-teal-400 mr-2"></i>Automation Solutions</li>
-                        <li><i class="fas fa-check text-teal-400 mr-2"></i>System Integration</li>
+                        <li>ERPNext Customization</li>
+                        <li>AI Assistant Development</li>
+                        <li>Automation Solutions</li>
+                        <li>System Integration</li>
                     </ul>
                 </div>
                 
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Contact Info</h4>
                     <div class="space-y-2 text-gray-300">
-                        <p><i class="fas fa-envelope text-amber-400 mr-2"></i>umairwali6@gmail.com</p>
-                        <p><i class="fas fa-phone text-amber-400 mr-2"></i>+92 308 2614004</p>
-                        <p><i class="fas fa-map-marker text-amber-400 mr-2"></i>Pakistan</p>
+                        <p>📧 umairwali6@gmail.com</p>
+                        <p>📱 +92 308 2614004</p>
+                        <p>📍 Pakistan</p>
                     </div>
                 </div>
             </div>
-
-            <div class="border-t border-gray-700 mt-8 pt-8">
-                <div class="flex justify-between items-center flex-wrap gap-4">
-                    <p class="text-gray-400">&copy; 2024 Umair Wali. All rights reserved.</p>
-                    <a href="advanced-erpnext-features.html" class="erpnext-btn text-white px-4 py-2 rounded-lg text-sm font-bold inline-flex items-center gap-2">
-                        <i class="fas fa-book"></i> ERPNext Guide
-                    </a>
-                </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 Umair Wali. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <script src="main.js"></script>
 </body>
 </html>
