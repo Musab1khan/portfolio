@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERPNext Features Checklist - Umair Wali</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            min-height: 100vh;
+            color: #1f2937;
+        }
+        
+        .container { max-width: 1400px; margin: 0 auto; }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border-bottom: 3px solid #3b82f6;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .github-logo {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #000;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+        
+        .header-title {
+            color: white;
+        }
+        
+        .header-title h1 {
+            font-size: 26px;
+            font-weight: bold;
+            margin: 0;
+        }
+        
+        .header-title p {
+            font-size: 12px;
+            color: #cbd5e1;
+            margin: 0;
+        }
+        
+        .header-contact {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #cbd5e1;
+            font-size: 13px;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .contact-item:hover {
+            color: #3b82f6;
+            transform: translateY(-2px);
+        }
+        
+        .contact-item i {
+            color: #3b82f6;
+            font-size: 16px;
+        }
+        
+        /* Main Wrapper */
+        .main-wrapper {
+            padding: 30px 20px;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 36px;
+            font-weight: bold;
+            color: #0f172a;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .hero-title img {
+            width: 50px;
+            height: 50px;
+        }
+        
+        .hero-subtitle {
+            font-size: 16px;
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+        
+        .stat-number {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+        
+        /* Search & Filter */
+        .search-section {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .search-box {
+            position: relative;
+            margin-bottom: 15px;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 14px 45px 14px 15px;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .search-box input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .search-box i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #9ca3af;
+            pointer-events: none;
+        }
+        
+        /* Module Tabs */
+        .modules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .module-btn {
+            padding: 12px 16px;
+            border: 2px solid #e5e7eb;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+        
+        .module-btn:hover {
+            border-color: #3b82f6;
+            color: #3b82f6;
+        }
+        
+        .module-btn.active {
+            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+        
+        /* Features Container */
+        .features-container {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .feature-card {
+            border: 2px solid #e5e7eb;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .feature-card:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        .feature-card-header {
+            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .feature-card-icon {
+            font-size: 32px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+        }
+        
+        .feature-card-title {
+            flex: 1;
+        }
+        
+        .feature-card-title h3 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 3px;
+        }
+        
+        .feature-card-title p {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+        
+        .feature-card-body {
+            padding: 20px;
+        }
+        
+        .feature-description {
+            font-size: 13px;
+            color: #6b7280;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .feature-benefits {
+            background: #f9fafb;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .benefits-title {
+            font-size: 12px;
+            font-weight: bold;
+            color: #374151;
+            margin-bottom: 8px;
+        }
+        
+        .benefit-item {
+            font-size: 12px;
+            color: #6b7280;
+            margin-bottom: 4px;
+            padding-left: 18px;
+            position: relative;
+        }
+        
+        .benefit-item:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+        
+        .feature-card-footer {
+            padding: 15px 20px;
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .feature-checkbox {
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+            accent-color: #10b981;
+        }
+        
+        .feature-status {
+            font-size: 12px;
+            color: #6b7280;
+            flex: 1;
+        }
+        
+        .learn-btn {
+            background: #e0e7ff;
+            color: #3b82f6;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .learn-btn:hover {
+            background: #c7d2fe;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 0;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 700px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.3s;
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        .modal-header {
+            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+            color: white;
+            padding: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 12px 12px 0 0;
+        }
+        
+        .modal-header h2 {
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 22px;
+        }
+        
+        .modal-header i {
+            font-size: 28px;
+        }
+        
+        .close-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+        
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .modal-body {
+            padding: 30px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        
+        .modal-section {
+            margin-bottom: 25px;
+        }
+        
+        .modal-section h3 {
+            font-size: 16px;
+            font-weight: bold;
+            color: #0f172a;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .modal-section h3 i {
+            color: #3b82f6;
+        }
+        
+        .modal-text {
+            font-size: 14px;
+            color: #6b7280;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+        
+        .modal-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .modal-list li {
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 10px;
+            padding-left: 24px;
+            position: relative;
+        }
+        
+        .modal-list li:before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: bold;
+        }
+        
+        .visual-example {
+            background: #f0f9ff;
+            border: 2px solid #bfdbfe;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 13px;
+            color: #1e40af;
+            font-family: monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+        
+        .modal-footer {
+            padding: 20px 30px;
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            border-radius: 0 0 12px 12px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+        
+        .btn-secondary {
+            background: #e5e7eb;
+            color: #1f2937;
+        }
+        
+        .btn-secondary:hover {
+            background: #d1d5db;
+        }
+        
+        /* Progress */
+        .progress-section {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .progress-title {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 10px;
+        }
+        
+        .progress-bar {
+            height: 12px;
+            background: #e5e7eb;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6 0%, #10b981 100%);
+            transition: width 0.3s;
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #cbd5e1;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 50px;
+            border-top: 3px solid #3b82f6;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-section {
+            margin-bottom: 20px;
+        }
+        
+        .footer-title {
+            font-weight: 600;
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+        
+        .footer-contact a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer-contact a:hover {
+            color: #3b82f6;
+        }
+        
+        .footer-divider {
+            height: 1px;
+            background: #334155;
+            margin: 20px 0;
+        }
+        
+        .footer-credit {
+            font-size: 13px;
+            color: #64748b;
+            line-height: 1.8;
+        }
+        
+        .footer-credit strong {
+            color: #cbd5e1;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            .modules-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-title {
+                font-size: 24px;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 20% auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-section">
+                    <div class="github-logo">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="header-title">
+                        <h1>ERPNext Features</h1>
+                        <p>Complete Implementation Guide by Umair Wali</p>
+                    </div>
+                </div>
+                <div class="header-contact">
+                    <a href="tel:+923082614004" class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+92 308 261 4004</span>
+                    </a>
+                    <a href="mailto:umairwali6@gmail.com" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>umairwali6@gmail.com</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="main-wrapper">
+        <div class="container">
+            <!-- Hero Section -->
+            <div class="hero-section">
+                <div class="hero-title">
+                    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub">
+                    ERPNext Complete Features Guide
+                </div>
+                <p class="hero-subtitle">
+                    Learn about every ERPNext feature before implementing. Click "Learn More" on any feature to understand what it does.
+                </p>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalFeatures">0</div>
+                        <div class="stat-label">Total Features</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="completedFeatures">0</div>
+                        <div class="stat-label">Selected</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="completionPercent">0%</div>
+                        <div class="stat-label">Progress</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search Section -->
+            <div class="search-section">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="🔍 Search features, modules...">
+                    <i class="fas fa-search"></i>
+                </div>
+                <div style="margin-top: 15px;">
+                    <label style="font-weight: 600; color: #374151; margin-right: 15px;">Select Module:</label>
+                </div>
+                <div class="modules-grid" id="moduleTabs"></div>
+            </div>
+
+            <!-- Progress Section -->
+            <div class="progress-section">
+                <div class="progress-title">📊 Your Implementation Progress</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+                </div>
+            </div>
+
+            <!-- Features Container -->
+            <div class="features-container">
+                <div class="features-grid" id="featuresContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="featureModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>
+                    <i id="modalIcon"></i>
+                    <span id="modalTitle"></span>
+                </h2>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal()">Close</button>
+                <button class="btn btn-primary" onclick="selectFeatureFromModal()">✓ Select This Feature</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-title">ERPNext Features Checklist</div>
+                <p style="font-size: 14px; margin: 8px 0;">Your complete guide to ERPNext implementation. Learn, select, and track your features.</p>
+            </div>
+            
+            <div class="footer-divider"></div>
+            
+            <div class="footer-section">
+                <div class="footer-title">📞 Contact Information</div>
+                <div class="footer-contact">
+                    <a href="tel:+923082614004">
+                        <i class="fas fa-phone"></i> +92 308 261 4004
+                    </a>
+                    <a href="mailto:umairwali6@gmail.com">
+                        <i class="fas fa-envelope"></i> umairwali6@gmail.com
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-divider"></div>
+            
+            <div class="footer-section">
+                <div class="footer-credit">
+                    <p><strong>Powered by:</strong> Umair Wali</p>
+                    <p><strong>Created by:</strong> Umair Wali</p>
+                    <p style="margin-top: 12px; font-size: 12px; opacity: 0.8;">© 2024 ERPNext Features Checklist. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const erpnextFeatures = {
+            accounting: {
+                icon: '💰',
+                color: '#3b82f6',
+                features: {
+                    'General Ledger': {
+                        icon: '📖',
+                        description: 'Record all financial transactions in your company',
+                        benefits: ['Track all money movements', 'Create financial records', 'Maintain audit trail'],
+                        explanation: 'The General Ledger is the foundation of accounting. Every transaction (sales, purchases, payments) is recorded here.\n\nExample: When you sell something for 1000, it records:\n- Debit: Cash 1000\n- Credit: Sales 1000'
+                    },
+                    'Multi-Currency': {
+                        icon: '💱',
+                        description: 'Handle transactions in different currencies automatically',
+                        benefits: ['Real-time exchange rates', 'Currency conversion', 'Multi-currency reports'],
+                        explanation: 'Work with international clients? Multi-currency lets you invoice in USD, EUR, GBP, etc.\n\nExample:\n- Invoice USD $1000 to US client\n- Auto converts to PKR at 278/USD\n- Shows PKR 278,000 in your ledger'
+                    },
+                    'Bank Reconciliation': {
+                        icon: '🏦',
+                        description: 'Match your bank statement with accounting records',
+                        benefits: ['Find errors quickly', 'Verify deposits', 'Reconcile differences'],
+                        explanation: 'Compare your bank statement with your accounting records.\n\nExample:\nBank Statement shows: 50,000\nYour Record shows: 50,000\n→ Reconciled ✓\n\nIf they don\'t match, you find the error!'
+                    },
+                    'Budget Management': {
+                        icon: '📊',
+                        description: 'Plan spending and track actual vs budgeted amounts',
+                        benefits: ['Control spending', 'Plan ahead', 'Monitor performance'],
+                        explanation: 'Create a budget for what you plan to spend.\n\nExample:\nBudget for Salaries: 100,000\nActual Spent: 95,000\nRemaining: 5,000\n→ You\'re under budget!'
+                    },
+                    'GST/VAT': {
+                        icon: '🧾',
+                        description: 'Automatically calculate and track sales tax',
+                        benefits: ['Auto-calculate tax', 'Tax reports', 'Compliance ready'],
+                        explanation: 'GST (Goods and Services Tax) is automatically calculated.\n\nExample:\nProduct: 100\nGST 17%: 17\nTotal: 117'
+                    }
+                }
+            },
+            manufacturing: {
+                icon: '🏭',
+                color: '#f59e0b',
+                features: {
+                    'Bill of Materials': {
+                        icon: '📋',
+                        description: 'Define what materials/components go into your product',
+                        benefits: ['Know what goes in', 'Track components', 'Cost calculation'],
+                        explanation: 'A BOM is a recipe for your product.\n\nExample - Making a Bicycle BOM:\n\n📋 BICYCLE (1 unit)\n├─ Frame Assembly (1)\n│  ├─ Steel Tube (2 pieces)\n│  ├─ Welding Rod (0.5 kg)\n│  └─ Paint (1 liter)\n├─ Wheel Assembly (2)\n│  ├─ Rim (2 pieces)\n│  └─ Tire (2 pieces)\n└─ Brake System (1 set)'
+                    },
+                    'Work Orders': {
+                        icon: '⚙️',
+                        description: 'Create production tasks and track their progress',
+                        benefits: ['Track production', 'Allocate resources', 'Monitor progress'],
+                        explanation: 'A Work Order tells the factory to make something.\n\nExample:\n🏭 WORK ORDER\n- Product: Bicycle\n- Quantity: 100\n- Status: In Progress\n- 45 completed, 55 remaining\n- Due: 2024-02-15'
+                    },
+                    'Quality Control': {
+                        icon: '✅',
+                        description: 'Inspect products before they leave the factory',
+                        benefits: ['Ensure quality', 'Find defects', 'Maintain standards'],
+                        explanation: 'Before shipping, check if products are good.\n\nExample:\n✓ Check - Bicycle Strength: PASS\n✓ Check - Brake System: PASS\n✗ Check - Paint Quality: FAIL\n→ Don\'t ship this unit'
+                    },
+                    'Scrap Management': {
+                        icon: '🗑️',
+                        description: 'Track waste and damaged materials during production',
+                        benefits: ['Record waste', 'Calculate losses', 'Reduce scrap'],
+                        explanation: 'Some material becomes waste during production.\n\nExample:\nBicycle Production:\n- Materials used: 100 kg\n- Scrap generated: 5 kg\n- Scrap cost: 5 × 200 = 1000 PKR\n→ This loss is recorded'
+                    }
+                }
+            },
+            inventory: {
+                icon: '📦',
+                color: '#8b5cf6',
+                features: {
+                    'Multi-Warehouse': {
+                        icon: '🏢',
+                        description: 'Manage stock across multiple locations',
+                        benefits: ['Track multiple stores', 'Transfer stock', 'Avoid overselling'],
+                        explanation: 'Your company has multiple warehouses.\n\nExample:\n🏭 Main Warehouse: 500 items\n🏪 Retail Store 1: 200 items\n🏪 Retail Store 2: 150 items\n→ Total: 850 items\n→ System knows where each item is'
+                    },
+                    'Batch Tracking': {
+                        icon: '🏷️',
+                        description: 'Track items by batch number for recalls/expiry',
+                        benefits: ['Track expiry dates', 'Quick recalls', 'Quality control'],
+                        explanation: 'Each batch of items is tracked separately.\n\nExample:\nBatch A: 100 items, Expiry 2024-12-31\nBatch B: 50 items, Expiry 2025-06-30\n→ If Batch A has problems, recall only that batch'
+                    },
+                    'Stock Reorder': {
+                        icon: '🔔',
+                        description: 'Automatically create purchase orders when stock is low',
+                        benefits: ['Never run out', 'Automatic ordering', 'Set and forget'],
+                        explanation: 'Set minimum stock levels, system auto-orders when low.\n\nExample:\nMin Stock: 10 items\nCurrent Stock: 8 items\n→ System creates Purchase Order automatically\n→ Supplier delivers, stock back to normal'
+                    },
+                    'Stock Valuation': {
+                        icon: '💵',
+                        description: 'Calculate the value of your inventory',
+                        benefits: ['Know inventory cost', 'Financial reports', 'Profit calculation'],
+                        explanation: 'Know what your stored items are worth.\n\nExample:\n100 items × 50 each = 5000 PKR\nYour inventory is worth 5000 PKR\n→ This shows on Balance Sheet'
+                    }
+                }
+            },
+            sales: {
+                icon: '💼',
+                color: '#ec4899',
+                features: {
+                    'Sales Orders': {
+                        icon: '📝',
+                        description: 'Create customer orders and track delivery',
+                        benefits: ['Customer records', 'Delivery tracking', 'Revenue tracking'],
+                        explanation: 'When a customer orders, you create a Sales Order.\n\nExample:\n👤 Customer: ABC Company\n📋 Order Date: 2024-01-10\n📦 Item: Bicycle, Qty: 50\n💰 Price: 50 × 1000 = 50,000 PKR\n📍 Status: Confirmed'
+                    },
+                    'Pricing Rules': {
+                        icon: '💰',
+                        description: 'Set different prices based on quantity or customer',
+                        benefits: ['Bulk discounts', 'Customer rates', 'Automatic pricing'],
+                        explanation: 'Charge different prices for bulk orders.\n\nExample:\n1-10 items: 100 PKR each\n11-50 items: 90 PKR each (10% off)\n50+ items: 80 PKR each (20% off)\n→ Automatically applied at checkout'
+                    },
+                    'Delivery Tracking': {
+                        icon: '🚚',
+                        description: 'Track when products are shipped and delivered',
+                        benefits: ['Customer visibility', 'Proof of delivery', 'Track shipments'],
+                        explanation: 'Track shipment from factory to customer.\n\nExample:\n📦 Order Date: 2024-01-10\n🚚 Shipped: 2024-01-12\n✓ Delivered: 2024-01-15\n→ Customer knows exact status'
+                    }
+                }
+            },
+            purchase: {
+                icon: '🛒',
+                color: '#14b8a6',
+                features: {
+                    'Supplier Management': {
+                        icon: '🤝',
+                        description: 'Manage all your suppliers and their information',
+                        benefits: ['Supplier contact', 'Payment history', 'Performance rating'],
+                        explanation: 'Store supplier details and track relationships.\n\nExample:\n🏭 Supplier: Steel Co.\n📞 Contact: 03001234567\n💰 Terms: Net 30 days\n⭐ Rating: 4.5/5'
+                    },
+                    'Purchase Orders': {
+                        icon: '📑',
+                        description: 'Create orders from suppliers to buy materials',
+                        benefits: ['Supplier requests', 'Quantity tracking', 'Payment tracking'],
+                        explanation: 'You create a PO to tell supplier what you need.\n\nExample:\n🛒 PO to Steel Co.\n📦 Item: Steel Tubes, Qty: 1000\n💰 Price: 1000 × 50 = 50,000 PKR\n📅 Delivery: 2024-02-01'
+                    },
+                    'Quality Check': {
+                        icon: '🔍',
+                        description: 'Inspect materials when they arrive from supplier',
+                        benefits: ['Verify quality', 'Reject bad items', 'Supplier feedback'],
+                        explanation: 'Check received materials for quality.\n\nExample:\nReceived: 1000 Steel Tubes\n✓ Check 1: Dimensions OK\n✓ Check 2: Surface Quality OK\n✗ Check 3: 10 tubes rusty\n→ Reject 10 tubes, accept 990'
+                    }
+                }
+            },
+            hr: {
+                icon: '👥',
+                color: '#ef4444',
+                features: {
+                    'Employee Records': {
+                        icon: '👤',
+                        description: 'Maintain employee information and history',
+                        benefits: ['Employee database', 'Salary records', 'Personal info'],
+                        explanation: 'Store all employee information.\n\nExample:\n👤 Name: Ahmed Khan\n📧 Email: ahmed@company.com\n💼 Designation: Manager\n💰 Salary: 100,000 PKR\n📍 Department: Production'
+                    },
+                    'Attendance': {
+                        icon: '📅',
+                        description: 'Track employee attendance daily',
+                        benefits: ['Absence tracking', 'Late tracking', 'Attendance reports'],
+                        explanation: 'Record who came and who didn\'t.\n\nExample:\n📅 Date: 2024-01-10\n✓ Ahmed: Present\n✓ Fatima: Present\n✗ Hassan: Absent\n⏰ Ali: Late (10 min)\n→ Used for salary calculation'
+                    },
+                    'Salary Processing': {
+                        icon: '💳',
+                        description: 'Calculate and process employee salaries',
+                        benefits: ['Automatic calculation', 'Tax deduction', 'Salary slips'],
+                        explanation: 'Calculate and pay employees.\n\nExample:\nBasic Salary: 100,000\nBonus: 10,000\nTax (10%): -11,000\nNet Pay: 99,000\n→ Automatic payment'
+                    },
+                    'Leave Management': {
+                        icon: '🏖️',
+                        description: 'Track employee leave and approvals',
+                        benefits: ['Leave requests', 'Approval workflow', 'Leave balance'],
+                        explanation: 'Employees request leave, manager approves.\n\nExample:\n👤 Ahmed requests: Sick leave\n📅 Date: 2024-01-20\n✓ Manager approves\n→ Ahmed doesn\'t need to come'
+                    }
+                }
+            },
+            crm: {
+                icon: '👤',
+                color: '#06b6d4',
+                features: {
+                    'Lead Management': {
+                        icon: '🎯',
+                        description: 'Track potential customers and sales opportunities',
+                        benefits: ['Lead source', 'Contact info', 'Conversation history'],
+                        explanation: 'A "Lead" is a potential customer.\n\nExample:\n🎯 Lead: XYZ Company\n📞 Contact: 03001234567\n📝 Note: Interested in 100 bicycles\n🔄 Status: Contacted, waiting for reply'
+                    },
+                    'Opportunity Pipeline': {
+                        icon: '📈',
+                        description: 'Track sales opportunities through different stages',
+                        benefits: ['Sales stages', 'Probability', 'Revenue forecast'],
+                        explanation: 'Track progress from lead to sale.\n\nExample:\n1️⃣ Lead (50%): Initial contact\n2️⃣ Qualified (70%): They showed interest\n3️⃣ Proposal (90%): We sent quote\n4️⃣ Won (100%): Deal closed!\n→ Estimate revenue at each stage'
+                    },
+                    'Email Campaigns': {
+                        icon: '📧',
+                        description: 'Send marketing emails to customers',
+                        benefits: ['Bulk emails', 'Track opens', 'Click tracking'],
+                        explanation: 'Send mass emails to marketing list.\n\nExample:\n📧 Campaign: "50% Off on Bicycles"\n👥 Recipients: 1000\n👁️ Opened: 300\n🔗 Clicked: 50\n💰 Result: 10 sales'
+                    }
+                }
+            },
+            projects: {
+                icon: '📊',
+                color: '#6366f1',
+                features: {
+                    'Project Management': {
+                        icon: '📋',
+                        description: 'Create and track projects from start to finish',
+                        benefits: ['Timeline tracking', 'Team assignment', 'Milestone tracking'],
+                        explanation: 'Manage a project like building a website.\n\nExample:\n🏗️ Project: Build Website\n👥 Team Lead: Ahmed\n📅 Start: 2024-01-01\n📅 End: 2024-03-31\n✓ Status: 60% complete'
+                    },
+                    'Task Management': {
+                        icon: '✓',
+                        description: 'Break project into tasks and assign to team',
+                        benefits: ['Task assignment', 'Priority setting', 'Progress tracking'],
+                        explanation: 'Divide project into small tasks.\n\nExample:\nProject: Build Website\n├─ Task 1: Design UI (Assigned: Sara)\n├─ Task 2: Write Code (Assigned: Ali)\n├─ Task 3: Test (Assigned: Fatima)\n└─ Task 4: Deploy (Assigned: Hassan)\n→ Each person knows what to do'
+                    },
+                    'Time Tracking': {
+                        icon: '⏱️',
+                        description: 'Record hours worked by team members',
+                        benefits: ['Billing clients', 'Productivity tracking', 'Cost calculation'],
+                        explanation: 'Track how much time people spent.\n\nExample:\nAhmed: 40 hours @ 1000/hour = 40,000\nAli: 35 hours @ 1000/hour = 35,000\nTotal Project Cost: 75,000\n→ Bill client accordingly'
+                    },
+                    'Gantt Chart': {
+                        icon: '📊',
+                        description: 'Visual timeline showing project tasks and dependencies',
+                        benefits: ['Timeline visualization', 'Dependency tracking', 'Schedule analysis'],
+                        explanation: 'Visual timeline of your project.\n\nExample:\nTask 1: Design ▪▪▪▪ (Jan)\nTask 2: Code ▪▪▪▪▪▪ (Feb-Mar)\nTask 3: Test ▪▪ (Apr)\nTask 4: Deploy ▪ (May)\n→ See which tasks happen when'
+                    }
+                }
+            }
+        };
+
+        let currentModule = null;
+        let selectedFeatures = {};
+        const storageKey = 'erpnext-features-selected';
+        let currentFeatureData = null;
+
+        function loadData() {
+            const saved = localStorage.getItem(storageKey);
+            if (saved) {
+                selectedFeatures = JSON.parse(saved);
+            }
+        }
+
+        function saveData() {
+            localStorage.setItem(storageKey, JSON.stringify(selectedFeatures));
+        }
+
+        function initializeApp() {
+            loadData();
+            renderModuleTabs();
+            selectModule(Object.keys(erpnextFeatures)[0]);
+        }
+
+        function renderModuleTabs() {
+            const moduleTabs = document.getElementById('moduleTabs');
+            moduleTabs.innerHTML = '';
+            Object.keys(erpnextFeatures).forEach(module => {
+                const data = erpnextFeatures[module];
+                const btn = document.createElement('button');
+                btn.className = 'module-btn';
+                btn.innerHTML = `${data.icon} ${module.charAt(0).toUpperCase() + module.slice(1)}`;
+                btn.onclick = (e) => selectModule(module, e.target.closest('.module-btn'));
+                moduleTabs.appendChild(btn);
+            });
+        }
+
+        function selectModule(module, btnElement = null) {
+            currentModule = module;
+            document.querySelectorAll('.module-btn').forEach(btn => btn.classList.remove('active'));
+            if (btnElement) {
+                btnElement.classList.add('active');
+            } else {
+                document.querySelectorAll('.module-btn')[0].classList.add('active');
+            }
+            renderFeatures(module);
+        }
+
+        function renderFeatures(module) {
+            const features = erpnextFeatures[module].features;
+            const moduleData = erpnextFeatures[module];
+            const featuresContent = document.getElementById('featuresContent');
+            featuresContent.innerHTML = '';
+
+            Object.keys(features).forEach(featureName => {
+                const featureData = features[featureName];
+                const featureId = `${module}-${featureName}`;
+                const isSelected = selectedFeatures[featureId] ? true : false;
+
+                const card = document.createElement('div');
+                card.className = 'feature-card';
+                card.innerHTML = `
+                    <div class="feature-card-header">
+                        <div class="feature-card-icon">${featureData.icon}</div>
+                        <div class="feature-card-title">
+                            <h3>${featureName}</h3>
+                            <p>${featureData.description}</p>
+                        </div>
+                    </div>
+                    <div class="feature-card-body">
+                        <div class="feature-description">${featureData.description}</div>
+                        <div class="feature-benefits">
+                            <div class="benefits-title">📌 Key Benefits:</div>
+                            ${featureData.benefits.map(b => `<div class="benefit-item">${b}</div>`).join('')}
+                        </div>
+                    </div>
+                    <div class="feature-card-footer">
+                        <input type="checkbox" class="feature-checkbox" id="${featureId}" ${isSelected ? 'checked' : ''} onchange="toggleFeature('${featureId}')">
+                        <span class="feature-status">${isSelected ? '✓ Selected' : 'Not selected'}</span>
+                        <button class="learn-btn" onclick="openModal('${module}', '${featureName}')">📖 Learn More</button>
+                    </div>
+                `;
+                featuresContent.appendChild(card);
+            });
+
+            updateProgress();
+        }
+
+        function openModal(module, featureName) {
+            const featureData = erpnextFeatures[module].features[featureName];
+            const moduleIcon = erpnextFeatures[module].icon;
+
+            document.getElementById('modalIcon').textContent = featureData.icon;
+            document.getElementById('modalTitle').textContent = featureName;
+            
+            let modalBody = `
+                <div class="modal-section">
+                    <h3><i class="fas fa-lightbulb"></i> What is ${featureName}?</h3>
+                    <p class="modal-text">${featureData.explanation}</p>
+                </div>
+                
+                <div class="modal-section">
+                    <h3><i class="fas fa-star"></i> Benefits</h3>
+                    <ul class="modal-list">
+                        ${featureData.benefits.map(b => `<li>${b}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+
+            document.getElementById('modalBody').innerHTML = modalBody;
+            document.getElementById('featureModal').style.display = 'block';
+            currentFeatureData = { module, featureName };
+        }
+
+        function closeModal() {
+            document.getElementById('featureModal').style.display = 'none';
+        }
+
+        function selectFeatureFromModal() {
+            if (currentFeatureData) {
+                const featureId = `${currentFeatureData.module}-${currentFeatureData.featureName}`;
+                const checkbox = document.getElementById(featureId);
+                if (checkbox && !checkbox.checked) {
+                    checkbox.checked = true;
+                    toggleFeature(featureId);
+                }
+                closeModal();
+            }
+        }
+
+        function toggleFeature(featureId) {
+            const checkbox = document.getElementById(featureId);
+            if (checkbox.checked) {
+                selectedFeatures[featureId] = true;
+            } else {
+                delete selectedFeatures[featureId];
+            }
+            saveData();
+            updateProgress();
+            
+            // Update card footer
+            const card = checkbox.closest('.feature-card-footer');
+            if (card) {
+                const status = card.querySelector('.feature-status');
+                status.textContent = checkbox.checked ? '✓ Selected' : 'Not selected';
+            }
+        }
+
+        function updateProgress() {
+            const allCheckboxes = document.querySelectorAll('.feature-checkbox');
+            const selected = document.querySelectorAll('.feature-checkbox:checked').length;
+            const total = allCheckboxes.length;
+            const percent = total > 0 ? Math.round((selected / total) * 100) : 0;
+
+            document.getElementById('totalFeatures').textContent = total;
+            document.getElementById('completedFeatures').textContent = selected;
+            document.getElementById('completionPercent').textContent = percent + '%';
+            document.getElementById('progressFill').style.width = percent + '%';
+        }
+
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const search = e.target.value.toLowerCase();
+            document.querySelectorAll('.feature-card').forEach(card => {
+                const title = card.querySelector('.feature-card-title h3').textContent.toLowerCase();
+                const desc = card.querySelector('.feature-description').textContent.toLowerCase();
+                const matches = title.includes(search) || desc.includes(search);
+                card.style.display = matches ? 'block' : 'none';
+            });
+        });
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('featureModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        initializeApp();
+    </script>
+</body>
+</html>
