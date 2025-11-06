@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERPNext - The Smarter, Open-Source ERP for Growing Businesses</title>
+    <meta name="description" content="ERPNext gives you the full power of enterprise automation — without the heavy price tag. Compare with Odoo, SAP and see why businesses choose ERPNext.">
+    <meta name="keywords" content="ERPNext, open source ERP, ERP comparison, Odoo alternative, SAP alternative, business automation">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .hover-lift {
+            transition: transform 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-effect">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-white">ERPNext</h1>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#features" class="text-white hover:text-blue-200">Features</a>
+                    <a href="#comparison" class="text-white hover:text-blue-200">Comparison</a>
+                    <a href="#pricing" class="text-white hover:text-blue-200">Pricing</a>
+                    <a href="#demo" class="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-gray-100">Get Demo</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg min-h-screen flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <h1 class="text-5xl lg:text-6xl font-bold text-white mb-6">
+                        The Smarter, Open-Source ERP for Growing Businesses
+                    </h1>
+                    <p class="text-xl text-blue-100 mb-8">
+                        ERPNext gives you the full power of enterprise automation — without the heavy price tag.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 hover-lift">
+                            <i class="fas fa-play mr-2"></i>Get a Free Demo
+                        </button>
+                        <button class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 hover-lift">
+                            <i class="fas fa-chart-bar mr-2"></i>Compare with Odoo
+                        </button>
+                    </div>
+                </div>
+                <div data-aos="fade-left">
+                    <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-8">
+                        <div class="grid grid-cols-2 gap-4 text-white">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold">100%</div>
+                                <div class="text-sm">Open Source</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold">10,000+</div>
+                                <div class="text-sm">Companies</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold">50+</div>
+                                <div class="text-sm">Modules</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold">24/7</div>
+                                <div class="text-sm">Support</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Benefits Section -->
+    <section id="features" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Why ERPNext?</h2>
+                <p class="text-xl text-gray-600">The complete ERP solution that grows with your business</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-blue-50 p-8 rounded-xl hover-lift" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-unlock text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">100% Open Source</h3>
+                    <p class="text-gray-600">No vendor lock-in. Full control over your data and customization.</p>
+                </div>
+                
+                <div class="bg-green-50 p-8 rounded-xl hover-lift" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-rocket text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Faster Implementation</h3>
+                    <p class="text-gray-600">Get up and running in weeks, not months. Lower TCO guaranteed.</p>
+                </div>
+                
+                <div class="bg-purple-50 p-8 rounded-xl hover-lift" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-cogs text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Customizable Workflows</h3>
+                    <p class="text-gray-600">Adapt the system to your processes, not the other way around.</p>
+                </div>
+                
+                <div class="bg-orange-50 p-8 rounded-xl hover-lift" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-brain text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Built-in AI & Modules</h3>
+                    <p class="text-gray-600">HRMS, Accounting, CRM, Manufacturing - all included out of the box.</p>
+                </div>
+                
+                <div class="bg-red-50 p-8 rounded-xl hover-lift" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-expand-arrows-alt text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Scalable Solution</h3>
+                    <p class="text-gray-600">From startups to enterprises. Grow without changing your ERP.</p>
+                </div>
+                
+                <div class="bg-teal-50 p-8 rounded-xl hover-lift" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-12 h-12 bg-teal-600 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fas fa-users text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Unlimited Users</h3>
+                    <p class="text-gray-600">No per-user licensing fees. Add as many team members as you need.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modules Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Complete Module Suite</h2>
+                <p class="text-xl text-gray-600">Everything you need to run your business efficiently</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm hover-lift" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-calculator text-blue-600 text-2xl mb-3"></i>
+                    <h3 class="font-semibold text-gray-900 mb-2">Accounting & Finance</h3>
+                    <p class="text-gray-600 text-sm">Complete financial management with automated reporting</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-sm hover-lift" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-users text-green-600 text-2xl mb-3"></i>
+                    <h3 class="font-semibold text-gray-900 mb-2">HR & Payroll</h3>
+                    <p class="text-gray-600 text-sm">End-to-end employee management and payroll processing</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-sm hover-lift" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-handshake text-purple-600 text-2xl mb-3"></i>
+                    <h3 class="font-semibold text-gray-900 mb-2">CRM & Sales</h3>
+                    <p class="text-gray-600 text-sm">Manage leads, opportunities, and customer relationships</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-sm hover-lift" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-boxes text-orange-600 text-2xl mb-3"></i>
+                    <h3 class="font-semibold text-gray-900 mb-2">Purchase & Inventory</h3>
+                    <p class="text-gray-600 text-sm">Streamlined procurement and inventory management</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-sm hover-lift" data-aos="fade-up" data-aos-delay="500">
+                    <i class="fas fa-industry text-red-600 text-2xl mb-3"></i>
+                    <h3 class="font-semibold text-gray-900 mb-2">Manufacturing & BOM</h3>
+                    <p class="text-gray-600 text-sm">Production planning and bill of materials management</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-sm hover-lift" data-aos="fade-up" data-aos-delay="600">
+                    <i class="fas fa-tasks text-teal-600 text-2xl mb-3"></i>
+                    <h3 class="font-semibold text-gray-900 mb-2">Project Management</h3>
+                    <p class="text-gray-600 text-sm">Track projects, tasks, and resource allocation</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-sm hover-lift" data-aos="fade-up" data-aos-delay="700">
+                    <i class="fas fa-shopping-cart text-indigo-600 text-2xl mb-3"></i>
+                    <h3 class="font-semibold text-gray-900 mb-2">Website & eCommerce</h3>
+                    <p class="text-gray-600 text-sm">Built-in website builder and online store management</p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-sm hover-lift" data-aos="fade-up" data-aos-delay="800">
+                    <i class="fas fa-cash-register text-pink-600 text-2xl mb-3"></i>
+                    <h3 class="font-semibold text-gray-900 mb-2">Point of Sale</h3>
+                    <p class="text-gray-600 text-sm">Retail management with barcode scanning and receipts</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Table Section -->
+    <section id="comparison" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">ERPNext vs Competition</h2>
+                <p class="text-xl text-gray-600">See how ERPNext stacks up against other ERP solutions</p>
+            </div>
+            
+            <div class="overflow-x-auto" data-aos="fade-up" data-aos-delay="200">
+                <table class="w-full bg-white rounded-xl shadow-lg">
+                    <thead class="bg-blue-600 text-white">
+                        <tr>
+                            <th class="px-6 py-4 text-left font-semibold">Feature</th>
+                            <th class="px-6 py-4 text-center font-semibold">ERPNext</th>
+                            <th class="px-6 py-4 text-center font-semibold">Odoo</th>
+                            <th class="px-6 py-4 text-center font-semibold">SAP Business One</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <tr>
+                            <td class="px-6 py-4 font-medium">License</td>
+                            <td class="px-6 py-4 text-center"><span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Open Source (Free)</span></td>
+                            <td class="px-6 py-4 text-center"><span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">Partly Proprietary</span></td>
+                            <td class="px-6 py-4 text-center"><span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Proprietary</span></td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="px-6 py-4 font-medium">Customization</td>
+                            <td class="px-6 py-4 text-center"><i class="fas fa-check text-green-600"></i> Full</td>
+                            <td class="px-6 py-4 text-center"><i class="fas fa-minus text-yellow-600"></i> Limited</td>
+                            <td class="px-6 py-4 text-center"><i class="fas fa-times text-red-600"></i> Complex</td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 font-medium">Modules Included</td>
+                            <td class="px-6 py-4 text-center"><span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">All</span></td>
+                            <td class="px-6 py-4 text-center"><span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">Add-ons (paid)</span></td>
+                            <td class="px-6 py-4 text-center"><span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Add-ons (paid)</span></td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="px-6 py-4 font-medium">User Limit</td>
+                            <td class="px-6 py-4 text-center"><span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Unlimited</span></td>
+                            <td class="px-6 py-4 text-center"><span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Paid per user</span></td>
+                            <td class="px-6 py-4 text-center"><span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Paid per user</span></td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 font-medium">Implementation Speed</td>
+                            <td class="px-6 py-4 text-center"><span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Fast</span></td>
+                            <td class="px-6 py-4 text-center"><span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">Moderate</span></td>
+                            <td class="px-6 py-4 text-center"><span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Slow</span></td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="px-6 py-4 font-medium">Hosting Options</td>
+                            <td class="px-6 py-4 text-center"><span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Self-hosted / Cloud</span></td>
+                            <td class="px-6 py-4 text-center"><span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">Mostly Cloud</span></td>
+                            <td class="px-6 py-4 text-center"><span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">Cloud</span></td>
+                        </tr>
+                        <tr>
+                            <td class="px-6 py-4 font-medium">AI Integration</td>
+                            <td class="px-6 py-4 text-center"><i class="fas fa-check text-green-600"></i> Yes (Customizable)</td>
+                            <td class="px-6 py-4 text-center"><i class="fas fa-minus text-yellow-600"></i> Limited</td>
+                            <td class="px-6 py-4 text-center"><i class="fas fa-minus text-yellow-600"></i> Enterprise Tier Only</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Industries We Serve</h2>
+                <p class="text-xl text-gray-600">Trusted by businesses across multiple sectors</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-sm hover-lift" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-industry text-blue-600 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Manufacturing</h3>
+                    <p class="text-gray-600">Streamline production, manage BOMs, and optimize supply chains</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-sm hover-lift" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-truck text-green-600 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Distribution</h3>
+                    <p class="text-gray-600">Manage inventory, warehousing, and logistics efficiently</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-sm hover-lift" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-graduation-cap text-purple-600 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Education</h3>
+                    <p class="text-gray-600">Complete school management with student information systems</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-sm hover-lift" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-heartbeat text-red-600 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Healthcare</h3>
+                    <p class="text-gray-600">Patient management, appointments, and medical records</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-sm hover-lift" data-aos="fade-up" data-aos-delay="500">
+                    <i class="fas fa-shopping-bag text-orange-600 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Retail</h3>
+                    <p class="text-gray-600">POS, inventory, and customer management for retail businesses</p>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-sm hover-lift" data-aos="fade-up" data-aos-delay="600">
+                    <i class="fas fa-laptop text-teal-600 text-3xl mb-4"></i>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">Service & IT</h3>
+                    <p class="text-gray-600">Project management, time tracking, and service delivery</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">What Our Customers Say</h2>
+                <p class="text-xl text-gray-600">Real businesses, real results</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"We switched from Odoo to ERPNext — saved 60% in annual ERP costs."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center">
+                            <span class="text-white font-semibold">JD</span>
+                        </div>
+                        <div class="ml-3">
+                            <p class="font-semibold text-gray-900">John Doe</p>
+                            <p class="text-gray-600 text-sm">CFO, Manufacturing Co.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"ERPNext gave us the flexibility to manage HR, Payroll, and Manufacturing all in one platform."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center">
+                            <span class="text-white font-semibold">SM</span>
+                        </div>
+                        <div class="ml-3">
+                            <p class="font-semibold text-gray-900">Sarah Miller</p>
+                            <p class="text-gray-600 text-sm">Operations Director</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 p-8 rounded-xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-4">
+                        <div class="flex text-yellow-400">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 mb-4">"The open-source nature allowed us to customize exactly to our needs without expensive consultants."</p>
+                    <div class="flex items-center">
+                        <div class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center">
+                            <span class="text-white font-semibold">MC</span>
+                        </div>
+                        <div class="ml-3">
+                            <p class="font-semibold text-gray-900">Mike Chen</p>
+                            <p class="text-gray-600 text-sm">IT Manager, Retail Chain</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo/CTA Section -->
+    <section id="demo" class="py-20 gradient-bg">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-white mb-4">See ERPNext in Action</h2>
+                <p class="text-xl text-blue-100 mb-8">Ready to transform your business operations? Get a personalized demo today.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 hover-lift">
+                        <i class="fas fa-play mr-2"></i>Schedule Live Demo
+                    </button>
+                    <button class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 hover-lift">
+                        <i class="fas fa-desktop mr-2"></i>Try Demo Environment
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Simple, Transparent Pricing</h2>
+                <p class="text-xl text-gray-600">Choose the deployment option that works for your business</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-lg hover-lift" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Cloud Hosting</h3>
+                    <div class="text-4xl font-bold text-blue-600 mb-2">$25</div>
+                    <p class="text-gray-600 mb-6">per user/month</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i>All modules included</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i>Automatic backups</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i>99.9% uptime SLA</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i>Email support</li>
+                    </ul>
+                    <button class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700">Get Started</button>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg border-2 border-blue-600 hover-lift" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-blue-600 text-white text-center py-1 px-4 rounded-full text-sm mb-4">Most Popular</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">On-Premise</h3>
+                    <div class="text-4xl font-bold text-blue-600 mb-2">Custom</div>
+                    <p class="text-gray-600 mb-6">one-time setup</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i>Complete data control</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i>Unlimited users</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i>Custom integrations</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i>Premium support</li>
+                    </ul>
+                    <button class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700">Contact Sales</button>
+                </div>
+                
+                <div class="bg-white p-8 rounded-xl shadow-lg hover-lift" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Custom Development</h3>
+                    <div class="text-4xl font-bold text-blue-600 mb-2">From $5k</div>
+                    <p class="text-gray-600 mb-6">project-based</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i>Tailored solutions</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i>Expert developers</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i>Project management</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-600 mr-2"></i>Training included</li>
+                    </ul>
+                    <button class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700">Get Quote</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="bg-gray-50 p-6 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">How is ERPNext different from Odoo?</h3>
+                    <p class="text-gray-600">ERPNext is 100% open source with no licensing fees, includes all modules out of the box, offers unlimited users, and provides faster implementation with lower total cost of ownership.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Can ERPNext be hosted on our own server?</h3>
+                    <p class="text-gray-600">Yes, ERPNext can be self-hosted on your own servers, private cloud, or you can choose our cloud hosting solution. We support Docker, Kubernetes, and traditional server deployments.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-xl" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Is ERPNext suitable for large enterprises?</h3>
+                    <p class="text-gray-600">Absolutely! ERPNext is scalable and used by companies with thousands of users. It supports multi-company, multi-location, and complex organizational structures.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">ERPNext</h3>
+                    <p class="text-gray-400">The smarter, open-source ERP solution for growing businesses.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Product</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Features</a></li>
+                        <li><a href="#" class="hover:text-white">Modules</a></li>
+                        <li><a href="#" class="hover:text-white">Pricing</a></li>
+                        <li><a href="#" class="hover:text-white">Demo</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white">Documentation</a></li>
+                        <li><a href="#" class="hover:text-white">Community</a></li>
+                        <li><a href="#" class="hover:text-white">Blog</a></li>
+                        <li><a href="#" class="hover:text-white">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-envelope mr-2"></i>hello@erpnext.com</li>
+                        <li><i class="fas fa-phone mr-2"></i>+1 (555) 123-4567</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i>Global</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 ERPNext. All rights reserved. | Open Source ERP Solutions</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('bg-blue-600');
+                nav.classList.remove('glass-effect');
+            } else {
+                nav.classList.remove('bg-blue-600');
+                nav.classList.add('glass-effect');
+            }
+        });
+    </script>
+</body>
+</html>
