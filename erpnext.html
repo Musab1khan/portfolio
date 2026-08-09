@@ -15,20 +15,34 @@
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
     
     <style>
+        :root {
+            --ink: #0C2329;
+            --teal: #14919B;
+        }
+        body { font-family: 'Manrope', sans-serif; }
+        .font-display { font-family: 'Syne', sans-serif; }
         .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background:
+                radial-gradient(900px 500px at 15% 20%, rgba(20, 145, 155, 0.35), transparent 55%),
+                linear-gradient(135deg, #0C2329 0%, #134E56 55%, #0F7A82 100%);
         }
         .glass-effect {
             backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(12, 35, 41, 0.45);
         }
         .hover-lift {
             transition: transform 0.3s ease;
         }
         .hover-lift:hover {
             transform: translateY(-5px);
+        }
+        .hero-media {
+            background:
+                linear-gradient(105deg, rgba(12, 35, 41, 0.92) 0%, rgba(12, 35, 41, 0.7) 50%, rgba(12, 35, 41, 0.45) 100%),
+                url('resources/erp-dashboard.jpg') center/cover no-repeat;
         }
     </style>
 </head>
@@ -38,60 +52,38 @@
     <nav class="fixed w-full z-50 glass-effect">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-4">
-                <div class="flex items-center">
-                    <h1 class="text-2xl font-bold text-white">ERPNext</h1>
+                <div class="flex items-center gap-6">
+                    <a href="index.html" class="text-sm text-white/70 hover:text-white">Umair Wali</a>
+                    <h1 class="font-display text-2xl font-bold text-white">ERPNext</h1>
                 </div>
                 <div class="hidden md:flex space-x-8">
-                    <a href="#features" class="text-white hover:text-blue-200">Features</a>
-                    <a href="#comparison" class="text-white hover:text-blue-200">Comparison</a>
-                    <a href="#pricing" class="text-white hover:text-blue-200">Pricing</a>
-                    <a href="#demo" class="bg-white text-blue-600 px-4 py-2 rounded-lg hover:bg-gray-100">Get Demo</a>
+                    <a href="#features" class="text-white hover:text-teal-200">Features</a>
+                    <a href="#comparison" class="text-white hover:text-teal-200">Comparison</a>
+                    <a href="#pricing" class="text-white hover:text-teal-200">Pricing</a>
+                    <a href="#demo" class="bg-white text-teal-700 px-4 py-2 hover:bg-gray-100">Get Demo</a>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="gradient-bg min-h-screen flex items-center">
+    <section class="hero-media min-h-screen flex items-center">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <div data-aos="fade-right">
-                    <h1 class="text-5xl lg:text-6xl font-bold text-white mb-6">
-                        The Smarter, Open-Source ERP for Growing Businesses
-                    </h1>
-                    <p class="text-xl text-blue-100 mb-8">
-                        ERPNext gives you the full power of enterprise automation — without the heavy price tag.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <button class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 hover-lift">
-                            <i class="fas fa-play mr-2"></i>Get a Free Demo
-                        </button>
-                        <button class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 hover-lift">
-                            <i class="fas fa-chart-bar mr-2"></i>Compare with Odoo
-                        </button>
-                    </div>
-                </div>
-                <div data-aos="fade-left">
-                    <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-8">
-                        <div class="grid grid-cols-2 gap-4 text-white">
-                            <div class="text-center">
-                                <div class="text-3xl font-bold">100%</div>
-                                <div class="text-sm">Open Source</div>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-3xl font-bold">10,000+</div>
-                                <div class="text-sm">Companies</div>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-3xl font-bold">50+</div>
-                                <div class="text-sm">Modules</div>
-                            </div>
-                            <div class="text-center">
-                                <div class="text-3xl font-bold">24/7</div>
-                                <div class="text-sm">Support</div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="max-w-3xl" data-aos="fade-right">
+                <p class="font-display text-4xl sm:text-5xl font-extrabold text-white mb-4 tracking-tight">ERPNext</p>
+                <h1 class="font-display text-3xl lg:text-5xl font-bold text-white mb-6">
+                    The smarter open-source ERP for growing businesses
+                </h1>
+                <p class="text-xl text-teal-100 mb-8 max-w-2xl">
+                    Full enterprise automation — without the heavy price tag.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="contact.html" class="bg-teal-500 text-white px-8 py-4 font-semibold hover:bg-teal-600 hover-lift text-center">
+                        <i class="fas fa-play mr-2"></i>Get a Free Demo
+                    </a>
+                    <a href="#comparison" class="border-2 border-white text-white px-8 py-4 font-semibold hover:bg-white hover:text-slate-900 hover-lift text-center">
+                        <i class="fas fa-chart-bar mr-2"></i>Compare with Odoo
+                    </a>
                 </div>
             </div>
         </div>
@@ -122,8 +114,8 @@
                     <p class="text-gray-600">Get up and running in weeks, not months. Lower TCO guaranteed.</p>
                 </div>
                 
-                <div class="bg-purple-50 p-8 rounded-xl hover-lift" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mb-4">
+                <div class="bg-teal-50 p-8 rounded-xl hover-lift" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-12 h-12 bg-teal-600 rounded-lg flex items-center justify-center mb-4">
                         <i class="fas fa-cogs text-white text-xl"></i>
                     </div>
                     <h3 class="text-xl font-semibold text-gray-900 mb-2">Customizable Workflows</h3>
@@ -179,7 +171,7 @@
                 </div>
                 
                 <div class="bg-white p-6 rounded-xl shadow-sm hover-lift" data-aos="fade-up" data-aos-delay="300">
-                    <i class="fas fa-handshake text-purple-600 text-2xl mb-3"></i>
+                    <i class="fas fa-handshake text-teal-600 text-2xl mb-3"></i>
                     <h3 class="font-semibold text-gray-900 mb-2">CRM & Sales</h3>
                     <p class="text-gray-600 text-sm">Manage leads, opportunities, and customer relationships</p>
                 </div>
@@ -203,7 +195,7 @@
                 </div>
                 
                 <div class="bg-white p-6 rounded-xl shadow-sm hover-lift" data-aos="fade-up" data-aos-delay="700">
-                    <i class="fas fa-shopping-cart text-indigo-600 text-2xl mb-3"></i>
+                    <i class="fas fa-shopping-cart text-teal-700 text-2xl mb-3"></i>
                     <h3 class="font-semibold text-gray-900 mb-2">Website & eCommerce</h3>
                     <p class="text-gray-600 text-sm">Built-in website builder and online store management</p>
                 </div>
@@ -306,7 +298,7 @@
                 </div>
                 
                 <div class="bg-white p-8 rounded-xl shadow-sm hover-lift" data-aos="fade-up" data-aos-delay="300">
-                    <i class="fas fa-graduation-cap text-purple-600 text-3xl mb-4"></i>
+                    <i class="fas fa-graduation-cap text-teal-600 text-3xl mb-4"></i>
                     <h3 class="text-xl font-semibold text-gray-900 mb-2">Education</h3>
                     <p class="text-gray-600">Complete school management with student information systems</p>
                 </div>
@@ -397,7 +389,7 @@
                     </div>
                     <p class="text-gray-700 mb-4">"The open-source nature allowed us to customize exactly to our needs without expensive consultants."</p>
                     <div class="flex items-center">
-                        <div class="w-10 h-10 bg-purple-600 rounded-full flex items-center justify-center">
+                        <div class="w-10 h-10 bg-teal-600 rounded-full flex items-center justify-center">
                             <span class="text-white font-semibold">MC</span>
                         </div>
                         <div class="ml-3">
@@ -415,14 +407,14 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div data-aos="fade-up">
                 <h2 class="text-4xl font-bold text-white mb-4">See ERPNext in Action</h2>
-                <p class="text-xl text-blue-100 mb-8">Ready to transform your business operations? Get a personalized demo today.</p>
+                <p class="text-xl text-teal-100 mb-8">Ready to transform your business operations? Get a personalized demo today.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 hover-lift">
+                    <a href="contact.html" class="bg-white text-teal-700 px-8 py-4 font-semibold hover:bg-gray-100 hover-lift text-center">
                         <i class="fas fa-play mr-2"></i>Schedule Live Demo
-                    </button>
-                    <button class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 hover-lift">
+                    </a>
+                    <a href="contact.html" class="border-2 border-white text-white px-8 py-4 font-semibold hover:bg-white hover:text-slate-900 hover-lift text-center">
                         <i class="fas fa-desktop mr-2"></i>Try Demo Environment
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>

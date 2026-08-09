@@ -6,11 +6,16 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeProjectCarousel();
     initializeSkillProgress();
     initializeSmoothScrolling();
+    initializeMobileMenu();
+    initializePageAnimations();
+    initializeChatInput();
 });
 
-// Typewriter effect for hero section
 function initializeTypewriter() {
-    const typed = new Typed('#typed-text', {
+    const el = document.getElementById('typed-text');
+    if (!el || typeof Typed === 'undefined') return;
+
+    new Typed('#typed-text', {
         strings: [
             'Building intelligent ERP solutions',
             'Creating AI-powered automation tools',
@@ -27,42 +32,36 @@ function initializeTypewriter() {
     });
 }
 
-// Scroll animations for sections
 function initializeScrollAnimations() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('revealed');
             }
         });
-    }, observerOptions);
-
-    // Observe all sections with reveal animation
-    document.querySelectorAll('.section-reveal').forEach(el => {
-        observer.observe(el);
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
     });
+
+    document.querySelectorAll('.section-reveal').forEach(el => observer.observe(el));
 }
 
-// Skills radar chart
 function initializeSkillsRadar() {
     const chartDom = document.getElementById('skills-radar');
-    if (!chartDom) return;
+    if (!chartDom || typeof echarts === 'undefined') return;
 
     const myChart = echarts.init(chartDom);
-    
-    const option = {
+
+    myChart.setOption({
         title: {
             text: 'Technical Skills Overview',
             left: 'center',
             textStyle: {
-                color: '#1e293b',
+                color: '#0C2329',
                 fontSize: 18,
-                fontWeight: 'bold'
+                fontWeight: 'bold',
+                fontFamily: 'Syne, sans-serif'
             }
         },
         radar: {
@@ -77,18 +76,17 @@ function initializeSkillsRadar() {
             shape: 'polygon',
             splitNumber: 5,
             axisName: {
-                color: '#374151',
-                fontSize: 12
+                color: '#3A555C',
+                fontSize: 12,
+                fontFamily: 'Manrope, sans-serif'
             },
             splitLine: {
-                lineStyle: {
-                    color: '#e5e7eb'
-                }
+                lineStyle: { color: '#D8E2E4' }
             },
             splitArea: {
                 show: true,
                 areaStyle: {
-                    color: ['rgba(6, 182, 212, 0.1)', 'rgba(6, 182, 212, 0.05)']
+                    color: ['rgba(20, 145, 155, 0.10)', 'rgba(20, 145, 155, 0.04)']
                 }
             }
         },
@@ -98,15 +96,10 @@ function initializeSkillsRadar() {
             data: [{
                 value: [95, 90, 85, 80, 88, 82],
                 name: 'Current Level',
-                areaStyle: {
-                    color: 'rgba(6, 182, 212, 0.3)'
-                },
-                lineStyle: {
-                    color: '#06b6d4',
-                    width: 3
-                },
+                areaStyle: { color: 'rgba(20, 145, 155, 0.28)' },
+                lineStyle: { color: '#14919B', width: 3 },
                 itemStyle: {
-                    color: '#06b6d4',
+                    color: '#14919B',
                     borderColor: '#fff',
                     borderWidth: 2
                 }
@@ -114,20 +107,14 @@ function initializeSkillsRadar() {
             animationDuration: 2000,
             animationEasing: 'cubicOut'
         }]
-    };
-
-    myChart.setOption(option);
-
-    // Responsive chart
-    window.addEventListener('resize', function() {
-        myChart.resize();
     });
+
+    window.addEventListener('resize', () => myChart.resize());
 }
 
-// Project carousel
 function initializeProjectCarousel() {
     const carousel = document.getElementById('projects-carousel');
-    if (!carousel) return;
+    if (!carousel || typeof Splide === 'undefined') return;
 
     new Splide('#projects-carousel', {
         type: 'loop',
@@ -138,40 +125,30 @@ function initializeProjectCarousel() {
         interval: 5000,
         pauseOnHover: true,
         breakpoints: {
-            1024: {
-                perPage: 2,
-            },
-            640: {
-                perPage: 1,
-            }
+            1024: { perPage: 2 },
+            640: { perPage: 1 }
         }
     }).mount();
 }
 
-// Skill progress bars animation
 function initializeSkillProgress() {
     const skillBars = document.querySelectorAll('.skill-progress');
-    
-    const observerOptions = {
-        threshold: 0.5
-    };
+    if (!skillBars.length || typeof anime === 'undefined') return;
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const bar = entry.target;
-                const width = bar.getAttribute('data-width');
-                
-                anime({
-                    targets: bar,
-                    width: width + '%',
-                    duration: 1500,
-                    easing: 'easeOutCubic',
-                    delay: anime.stagger(200)
-                });
-            }
+            if (!entry.isIntersecting) return;
+            const bar = entry.target;
+            const width = bar.getAttribute('data-width');
+            anime({
+                targets: bar,
+                width: width + '%',
+                duration: 1500,
+                easing: 'easeOutCubic'
+            });
+            observer.unobserve(bar);
         });
-    }, observerOptions);
+    }, { threshold: 0.5 });
 
     skillBars.forEach(bar => {
         bar.style.width = '0%';
@@ -179,41 +156,51 @@ function initializeSkillProgress() {
     });
 }
 
-// Smooth scrolling for navigation links
 function initializeSmoothScrolling() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (!href || href === '#') return;
+            const target = document.querySelector(href);
+            if (!target) return;
             e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                const offsetTop = target.offsetTop - 80; // Account for fixed nav
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
+            window.scrollTo({
+                top: target.offsetTop - 80,
+                behavior: 'smooth'
+            });
+            const menu = document.getElementById('mobile-menu');
+            if (menu) menu.classList.remove('open');
         });
     });
 }
 
-// AI Chat functionality
+function initializeMobileMenu() {
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    if (!toggle || !menu) return;
+
+    toggle.addEventListener('click', () => {
+        menu.classList.toggle('open');
+    });
+}
+
 const chatResponses = {
-    'default': [
+    default: [
         'I can help you with ERPNext customization, Python development, and automation solutions.',
         'My expertise includes ERPNext v14 & v15, AI assistants, and system integration.',
         'Would you like to discuss a specific project or technical challenge?'
     ],
-    'erpnext': [
+    erpnext: [
         'I specialize in ERPNext v14 and v15 with extensive experience in custom app development.',
         'My ERPNext services include workflow automation, custom modules, and third-party integrations.',
         'I can help optimize your ERPNext implementation for better performance and usability.'
     ],
-    'automation': [
+    automation: [
         'I develop automation solutions using Python, including task scheduling and workflow optimization.',
         'My automation tools can integrate with various systems including ERPNext, databases, and APIs.',
         'I can help streamline your business processes with intelligent automation.'
     ],
-    'ai': [
+    ai: [
         'My AI assistants support both online and offline operation with multilingual capabilities.',
         'I integrate OCR, face recognition, and natural language processing in AI solutions.',
         'The AI systems I build can automate complex tasks and provide intelligent insights.'
@@ -222,159 +209,132 @@ const chatResponses = {
 
 function sendMessage() {
     const input = document.getElementById('chat-input');
+    if (!input) return;
     const message = input.value.trim();
-    
     if (!message) return;
-    
+
     addChatMessage(message, 'user');
     input.value = '';
-    
-    // Simulate AI response
+
     setTimeout(() => {
-        const response = getAIResponse(message);
-        addChatMessage(response, 'ai');
+        addChatMessage(getAIResponse(message), 'ai');
     }, 1000);
 }
 
 function askQuestion(question) {
-    document.getElementById('chat-input').value = question;
+    const input = document.getElementById('chat-input');
+    if (!input) return;
+    input.value = question;
     sendMessage();
 }
 
 function addChatMessage(message, sender) {
     const chatContainer = document.getElementById('chat-messages');
+    if (!chatContainer) return;
+
     const messageDiv = document.createElement('div');
-    
     if (sender === 'user') {
-        messageDiv.className = 'chat-bubble bg-blue-100 p-4 rounded-lg mr-12';
-        messageDiv.innerHTML = `<p class="text-sm">${message}</p>`;
+        messageDiv.className = 'chat-bubble bg-ink/5 p-4 mr-8';
+        messageDiv.innerHTML = `<p class="text-sm text-ink/80">${message}</p>`;
     } else {
-        messageDiv.className = 'chat-bubble bg-teal-100 p-4 rounded-lg ml-12';
-        messageDiv.innerHTML = `<p class="text-sm">${message}</p>`;
+        messageDiv.className = 'chat-bubble bg-teal-500/10 p-4 ml-8';
+        messageDiv.innerHTML = `<p class="text-sm text-ink/80">${message}</p>`;
     }
-    
+
     chatContainer.appendChild(messageDiv);
     chatContainer.scrollTop = chatContainer.scrollHeight;
-    
-    // Animate the message appearance
-    anime({
-        targets: messageDiv,
-        opacity: [0, 1],
-        translateY: [20, 0],
-        duration: 500,
-        easing: 'easeOutCubic'
-    });
+
+    if (typeof anime !== 'undefined') {
+        anime({
+            targets: messageDiv,
+            opacity: [0, 1],
+            translateY: [16, 0],
+            duration: 450,
+            easing: 'easeOutCubic'
+        });
+    } else {
+        messageDiv.style.opacity = '1';
+        messageDiv.style.transform = 'none';
+    }
 }
 
 function getAIResponse(message) {
     const lowerMessage = message.toLowerCase();
-    
     if (lowerMessage.includes('erpnext') || lowerMessage.includes('erp')) {
         return chatResponses.erpnext[Math.floor(Math.random() * chatResponses.erpnext.length)];
-    } else if (lowerMessage.includes('automation') || lowerMessage.includes('automate')) {
+    }
+    if (lowerMessage.includes('automation') || lowerMessage.includes('automate')) {
         return chatResponses.automation[Math.floor(Math.random() * chatResponses.automation.length)];
-    } else if (lowerMessage.includes('ai') || lowerMessage.includes('assistant')) {
+    }
+    if (lowerMessage.includes('ai') || lowerMessage.includes('assistant')) {
         return chatResponses.ai[Math.floor(Math.random() * chatResponses.ai.length)];
-    } else {
-        return chatResponses.default[Math.floor(Math.random() * chatResponses.default.length)];
+    }
+    return chatResponses.default[Math.floor(Math.random() * chatResponses.default.length)];
+}
+
+function initializeChatInput() {
+    const chatInput = document.getElementById('chat-input');
+    if (!chatInput) return;
+    chatInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') sendMessage();
+    });
+
+    // Reveal the initial greeting bubble
+    const firstBubble = document.querySelector('#chat-messages .chat-bubble');
+    if (firstBubble && typeof anime !== 'undefined') {
+        anime({
+            targets: firstBubble,
+            opacity: [0, 1],
+            translateY: [12, 0],
+            duration: 500,
+            easing: 'easeOutCubic',
+            delay: 200
+        });
+    } else if (firstBubble) {
+        firstBubble.style.opacity = '1';
+        firstBubble.style.transform = 'none';
     }
 }
 
-// Enter key support for chat input
-document.addEventListener('DOMContentLoaded', function() {
-    const chatInput = document.getElementById('chat-input');
-    if (chatInput) {
-        chatInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                sendMessage();
-            }
-        });
-    }
-});
+function initializePageAnimations() {
+    if (typeof anime === 'undefined') return;
 
-// Add some interactive hover effects
-document.addEventListener('DOMContentLoaded', function() {
-    // Skill cards hover animation
-    const skillCards = document.querySelectorAll('.skill-card');
-    skillCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            anime({
-                targets: this,
-                scale: 1.02,
-                duration: 300,
-                easing: 'easeOutCubic'
-            });
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            anime({
-                targets: this,
-                scale: 1,
-                duration: 300,
-                easing: 'easeOutCubic'
-            });
-        });
-    });
+    anime.timeline({
+        easing: 'easeOutExpo',
+        duration: 900
+    })
+    .add({
+        targets: '.hero-media',
+        scale: [1.08, 1],
+        duration: 1600,
+        easing: 'easeOutCubic'
+    })
+    .add({
+        targets: '.hero-brand',
+        translateY: [36, 0],
+        opacity: [0, 1],
+        duration: 900
+    }, '-=1200')
+    .add({
+        targets: '.hero-line',
+        width: ['0%', '4.5rem'],
+        duration: 700
+    }, '-=650')
+    .add({
+        targets: '.hero-content h1, .hero-content p, .hero-content .flex',
+        translateY: [24, 0],
+        opacity: [0, 1],
+        delay: anime.stagger(90),
+        duration: 700
+    }, '-=500');
+}
 
-    // Project cards hover animation
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            anime({
-                targets: this,
-                translateY: -8,
-                duration: 400,
-                easing: 'easeOutCubic'
-            });
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            anime({
-                targets: this,
-                translateY: 0,
-                duration: 400,
-                easing: 'easeOutCubic'
-            });
-        });
-    });
-});
-
-// Navbar scroll effect
 window.addEventListener('scroll', function() {
     const navbar = document.querySelector('nav');
+    if (!navbar) return;
     if (window.scrollY > 50) {
         navbar.classList.add('shadow-lg');
     } else {
         navbar.classList.remove('shadow-lg');
     }
 });
-
-// Loading animation for page elements
-function initializePageAnimations() {
-    // Animate hero elements on load
-    anime.timeline({
-        easing: 'easeOutExpo',
-        duration: 1000
-    })
-    .add({
-        targets: '.hero-content h1',
-        translateY: [50, 0],
-        opacity: [0, 1],
-        delay: 300
-    })
-    .add({
-        targets: '.hero-content p',
-        translateY: [30, 0],
-        opacity: [0, 1],
-        delay: 200
-    }, '-=800')
-    .add({
-        targets: '.hero-content .flex',
-        translateY: [20, 0],
-        opacity: [0, 1],
-        delay: anime.stagger(100)
-    }, '-=600');
-}
-
-// Initialize page animations after DOM load
-document.addEventListener('DOMContentLoaded', initializePageAnimations);
