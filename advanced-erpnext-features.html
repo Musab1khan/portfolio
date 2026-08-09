@@ -8,11 +8,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            font-family: 'Manrope', sans-serif;
+            background: radial-gradient(1000px 500px at 10% -10%, rgba(20,145,155,0.18), transparent 55%), linear-gradient(135deg, #0C2329 0%, #134E56 50%, #0C2329 100%);
             min-height: 100vh;
             color: #1f2937;
         }
@@ -20,8 +21,8 @@
         .container { max-width: 1400px; margin: 0 auto; }
         
         header {
-            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-            border-bottom: 3px solid #3b82f6;
+            background: linear-gradient(135deg, #0C2329 0%, #0F7A82 140%);
+            border-bottom: 3px solid #14919B;
             padding: 20px 0;
             position: sticky;
             top: 0;
@@ -54,7 +55,7 @@
             justify-content: center;
             font-weight: bold;
             color: #000;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 4px 15px rgba(20, 145, 155, 0.3);
         }
         
         .header-title {
@@ -92,12 +93,12 @@
         }
         
         .contact-item:hover {
-            color: #3b82f6;
+            color: #14919B;
             transform: translateY(-2px);
         }
         
         .contact-item i {
-            color: #3b82f6;
+            color: #14919B;
             font-size: 16px;
         }
         
@@ -144,12 +145,12 @@
         }
         
         .stat-card {
-            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+            background: linear-gradient(135deg, #14919B 0%, #0F7A82 100%);
             color: white;
             padding: 20px;
             border-radius: 8px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 4px 15px rgba(20, 145, 155, 0.3);
         }
         
         .stat-number {
@@ -187,8 +188,8 @@
         
         .search-box input:focus {
             outline: none;
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+            border-color: #14919B;
+            box-shadow: 0 0 0 3px rgba(20, 145, 155, 0.12);
         }
         
         .search-box i {
@@ -224,15 +225,15 @@
         }
         
         .module-btn:hover {
-            border-color: #3b82f6;
-            color: #3b82f6;
+            border-color: #14919B;
+            color: #14919B;
         }
         
         .module-btn.active {
-            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+            background: linear-gradient(135deg, #14919B 0%, #0F7A82 100%);
             color: white;
             border-color: transparent;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 4px 15px rgba(20, 145, 155, 0.3);
         }
         
         .chart-section {
@@ -300,7 +301,7 @@
             background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
             padding: 20px;
             border-radius: 8px;
-            border-left: 4px solid #3b82f6;
+            border-left: 4px solid #14919B;
         }
         
         .chart-stat-label {
@@ -339,13 +340,13 @@
         }
         
         .feature-card:hover {
-            border-color: #3b82f6;
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
+            border-color: #14919B;
+            box-shadow: 0 10px 25px rgba(20, 145, 155, 0.2);
             transform: translateY(-5px);
         }
         
         .feature-card-header {
-            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+            background: linear-gradient(135deg, #14919B 0%, #0F7A82 100%);
             color: white;
             padding: 20px;
             display: flex;
@@ -443,8 +444,8 @@
         }
         
         .learn-btn {
-            background: #e0e7ff;
-            color: #3b82f6;
+            background: #d7f1f3;
+            color: #14919B;
             border: none;
             padding: 6px 12px;
             border-radius: 6px;
@@ -455,7 +456,7 @@
         }
         
         .learn-btn:hover {
-            background: #c7d2fe;
+            background: #b3e4e8;
         }
         
         .modal {
@@ -493,7 +494,7 @@
         }
         
         .modal-header {
-            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+            background: linear-gradient(135deg, #14919B 0%, #0F7A82 100%);
             color: white;
             padding: 25px;
             display: flex;
@@ -554,7 +555,7 @@
         }
         
         .modal-section h3 i {
-            color: #3b82f6;
+            color: #14919B;
         }
         
         .modal-text {
@@ -581,7 +582,7 @@
             content: '→';
             position: absolute;
             left: 0;
-            color: #3b82f6;
+            color: #14919B;
             font-weight: bold;
         }
         
@@ -606,13 +607,13 @@
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+            background: linear-gradient(135deg, #14919B 0%, #0F7A82 100%);
             color: white;
         }
         
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 4px 12px rgba(20, 145, 155, 0.3);
         }
         
         .btn-secondary {
@@ -647,7 +648,7 @@
         
         .progress-fill {
             height: 100%;
-            background: linear-gradient(90deg, #3b82f6 0%, #10b981 100%);
+            background: linear-gradient(90deg, #14919B 0%, #10b981 100%);
             transition: width 0.3s;
         }
         
@@ -657,7 +658,7 @@
             padding: 40px 20px;
             text-align: center;
             margin-top: 50px;
-            border-top: 3px solid #3b82f6;
+            border-top: 3px solid #14919B;
         }
         
         .footer-content {
@@ -693,7 +694,7 @@
         }
         
         .footer-contact a:hover {
-            color: #3b82f6;
+            color: #14919B;
         }
         
         .footer-divider {
@@ -747,15 +748,15 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo-section">
-                    <div class="github-logo">
-                        <i class="fab fa-github"></i>
-                    </div>
+                    <a href="index.html" class="github-logo" aria-label="Home" style="text-decoration:none;font-family:Syne,sans-serif;">UW</a>
                     <div class="header-title">
-                        <h1>ERPNext Features</h1>
+                        <h1 style="font-family:Syne,sans-serif">ERPNext Features</h1>
                         <p>Complete Implementation Guide by Umair Wali</p>
                     </div>
                 </div>
                 <div class="header-contact">
+                    <a href="index.html" class="contact-item"><i class="fas fa-home"></i><span>Home</span></a>
+                    <a href="contact.html" class="contact-item"><i class="fas fa-paper-plane"></i><span>Contact</span></a>
                     <a href="tel:+923082614004" class="contact-item">
                         <i class="fas fa-phone"></i>
                         <span>+92 308 261 4004</span>
@@ -774,8 +775,8 @@
         <div class="container">
             <!-- Hero Section -->
             <div class="hero-section">
-                <div class="hero-title">
-                    <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub">
+                <div class="hero-title" style="font-family:Syne,sans-serif">
+                    <img src="resources/erp-dashboard.jpg" alt="ERPNext" style="object-fit:cover;border-radius:8px;">
                     ERPNext Complete Features Guide
                 </div>
                 <p class="hero-subtitle">
@@ -909,7 +910,7 @@
         const erpnextFeatures = {
             accounting: {
                 icon: '💰',
-                color: '#3b82f6',
+                color: '#14919B',
                 features: {
                     'General Ledger': {
                         icon: '📖',
@@ -975,7 +976,7 @@
             },
             inventory: {
                 icon: '📦',
-                color: '#8b5cf6',
+                color: '#0F7A82',
                 features: {
                     'Multi-Warehouse': {
                         icon: '🏢',
@@ -1005,7 +1006,7 @@
             },
             sales: {
                 icon: '💼',
-                color: '#ec4899',
+                color: '#D97706',
                 features: {
                     'Sales Orders': {
                         icon: '📝',
@@ -1107,7 +1108,7 @@
             },
             projects: {
                 icon: '📊',
-                color: '#6366f1',
+                color: '#134E56',
                 features: {
                     'Project Management': {
                         icon: '📋',
@@ -1329,18 +1330,18 @@
                         label: 'Selected Features',
                         data: selectedCounts,
                         backgroundColor: [
-                            '#3b82f6',
+                            '#14919B',
                             '#f59e0b',
-                            '#8b5cf6',
-                            '#ec4899',
+                            '#0F7A82',
+                            '#D97706',
                             '#14b8a6',
                             '#ef4444',
                             '#06b6d4',
-                            '#6366f1'
+                            '#134E56'
                         ],
                         borderRadius: 8,
                         borderSkipped: false,
-                        hoverBackgroundColor: '#1e40af'
+                        hoverBackgroundColor: '#0F7A82'
                     }]
                 },
                 options: {
@@ -1405,7 +1406,7 @@
                                     return `
                                         <li style="padding: 10px 0; border-bottom: 1px solid #e5e7eb;">
                                             <div style="display: flex; align-items: flex-start; gap: 10px;">
-                                                <span style="color: #3b82f6; font-size: 18px; flex-shrink: 0;">✓</span>
+                                                <span style="color: #14919B; font-size: 18px; flex-shrink: 0;">✓</span>
                                                 <div style="flex: 1;">
                                                     <strong style="color: #0f172a; display: block; margin-bottom: 3px;">${featureData.icon} ${feature}</strong>
                                                     <p style="color: #6b7280; font-size: 12px; margin: 0; line-height: 1.4;">${featureData.description}</p>
@@ -1427,14 +1428,14 @@
             const allFeatures = Object.values(erpnextFeatures).reduce((sum, mod) => sum + Object.keys(mod.features).length, 0);
 
             const htmlContent = `
-                <div style="padding: 30px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #1f2937;">
-                    <div style="text-align: center; margin-bottom: 40px; border-bottom: 3px solid #3b82f6; padding-bottom: 20px;">
+                <div style="padding: 30px; font-family: 'Manrope', sans-serif; color: #1f2937;">
+                    <div style="text-align: center; margin-bottom: 40px; border-bottom: 3px solid #14919B; padding-bottom: 20px;">
                         <h1 style="color: #0f172a; margin: 0 0 10px 0; font-size: 28px;">🏢 ERPNext Implementation Report</h1>
                         <p style="color: #6b7280; margin: 0; font-size: 14px;">Selected Features & Modules Analysis</p>
                     </div>
 
                     <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 15px; margin-bottom: 30px;">
-                        <div style="background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%); color: white; padding: 15px; border-radius: 8px; text-align: center;">
+                        <div style="background: linear-gradient(135deg, #14919B 0%, #0F7A82 100%); color: white; padding: 15px; border-radius: 8px; text-align: center;">
                             <div style="font-size: 24px; font-weight: bold; margin-bottom: 5px;">${totalFeatures}</div>
                             <div style="font-size: 12px; opacity: 0.9;">Features Selected</div>
                         </div>
@@ -1448,7 +1449,7 @@
                         </div>
                     </div>
 
-                    <div style="background: #f0f9ff; padding: 15px; border-radius: 8px; margin-bottom: 30px; border-left: 4px solid #3b82f6;">
+                    <div style="background: #f0f9ff; padding: 15px; border-radius: 8px; margin-bottom: 30px; border-left: 4px solid #14919B;">
                         <p style="margin: 5px 0; font-size: 13px; color: #0369a1;">
                             <strong>Generated:</strong> ${new Date().toLocaleDateString()} at ${new Date().toLocaleTimeString()}
                         </p>
@@ -1458,7 +1459,7 @@
                     </div>
 
                     <div style="margin-top: 30px;">
-                        <h2 style="color: #0f172a; font-size: 20px; margin-bottom: 20px; border-bottom: 2px solid #3b82f6; padding-bottom: 10px;">
+                        <h2 style="color: #0f172a; font-size: 20px; margin-bottom: 20px; border-bottom: 2px solid #14919B; padding-bottom: 10px;">
                             📋 Selected Features by Module
                         </h2>
                         ${moduleDetailsHTML}
